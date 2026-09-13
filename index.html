@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Delhi Air + Waste: A Systemic Landscape</title>
+<style>
+:root{
+  --navy:#0b3d5c; --navy2:#154b6b; --ink:#1a2733; --muted:#5a6b7a;
+  --line:#d3dde5; --bg:#f4f7f9; --card:#ffffff;
+  --green:#2e7d5b; --teal:#1f7a7a; --blue:#2456a6; --purple:#6b3fa0;
+  --amber:#c9772f; --red:#a63a3a; --maroon:#5c1a1a;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Helvetica Neue',Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5;font-size:15px}
+header{background:linear-gradient(135deg,#0b3d5c,#154b6b);color:#fff;padding:22px 26px 16px}
+header h1{margin:0 0 4px;font-size:23px;letter-spacing:.2px}
+header p{margin:0;color:#cfe0ec;font-size:13.5px;max-width:900px}
+.tabs{display:flex;gap:4px;background:#0b3d5c;padding:0 20px}
+.tab{background:transparent;border:none;color:#a9c4d6;padding:12px 20px;font-size:14.5px;font-weight:600;cursor:pointer;border-bottom:3px solid transparent}
+.tab:hover{color:#fff}
+.tab.active{color:#fff;border-bottom-color:#f0ad4e}
+main{max-width:1200px;margin:0 auto;padding:22px 20px 60px}
+.panel{display:none;animation:fade .25s ease}
+.panel.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+h2.sec{color:var(--navy);font-size:19px;margin:26px 0 10px;border-bottom:2px solid var(--line);padding-bottom:6px}
+h2.sec:first-child{margin-top:6px}
+.lead{color:var(--muted);font-size:14.5px;max-width:900px;margin:0 0 14px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:14px 0}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;border-left:4px solid var(--navy)}
+.stat .big{font-size:26px;font-weight:800;color:var(--navy);line-height:1.1}
+.stat .lab{font-size:12.5px;color:var(--muted);margin-top:3px}
+.stat.bad{border-left-color:var(--red)} .stat.bad .big{color:var(--red)}
+.stat.warn{border-left-color:var(--amber)} .stat.warn .big{color:var(--amber)}
+.stat.good{border-left-color:var(--green)} .stat.good .big{color:var(--green)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:820px){.grid2{grid-template-columns:1fr}}
+.box{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px}
+.box h3{margin:0 0 10px;font-size:15px;color:var(--navy2)}
+.note{font-size:12px;color:var(--muted);margin-top:8px}
+table{border-collapse:collapse;width:100%;font-size:13px;background:var(--card)}
+th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+th{background:var(--navy);color:#fff;font-weight:600;position:sticky;top:0}
+tr:nth-child(even) td{background:#f7fafc}
+.flag{background:#fff8e1;border-left:4px solid #f0ad4e;padding:10px 14px;border-radius:6px;font-size:13px;color:#6b551a;margin:12px 0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 14px}
+.chip{border:1.5px solid var(--navy);color:var(--navy);background:#fff;border-radius:20px;padding:5px 14px;font-size:13px;font-weight:600;cursor:pointer;user-select:none}
+.chip.active{background:var(--navy);color:#fff}
+.chip[data-m="A"]{border-color:var(--green);color:var(--green)} .chip[data-m="A"].active{background:var(--green);color:#fff}
+.chip[data-m="B"]{border-color:var(--teal);color:var(--teal)} .chip[data-m="B"].active{background:var(--teal);color:#fff}
+.chip[data-m="C"]{border-color:var(--blue);color:var(--blue)} .chip[data-m="C"].active{background:var(--blue);color:#fff}
+.chip[data-m="D"]{border-color:var(--purple);color:var(--purple)} .chip[data-m="D"].active{background:var(--purple);color:#fff}
+.mtag{display:inline-block;width:20px;height:20px;border-radius:50%;color:#fff;font-size:12px;font-weight:700;text-align:center;line-height:20px;margin-right:3px}
+.mA{background:var(--green)} .mB{background:var(--teal)} .mC{background:var(--blue)} .mD{background:var(--purple)}
+.moves{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin:14px 0}
+.move{background:var(--card);border:1px solid var(--line);border-top:5px solid var(--navy);border-radius:10px;padding:16px}
+.move.a{border-top-color:var(--green)} .move.b{border-top-color:var(--teal)} .move.c{border-top-color:var(--blue)} .move.d{border-top-color:var(--purple)}
+.move .h{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.move .h b{font-size:15px;color:var(--navy)}
+.move .why{font-size:13px;color:var(--ink);margin:6px 0}
+.move .data{font-size:12px;color:var(--muted)}
+.svgwrap{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px;overflow-x:auto}
+.svgwrap svg{width:100%;height:auto;min-width:900px}
+svg text{font-family:'Helvetica Neue',Arial,sans-serif}
+.legend{font-size:12px;color:var(--muted);margin-top:6px}
+.foot{margin-top:30px;padding-top:14px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+.pill{display:inline-block;background:#eef3f7;border-radius:6px;padding:1px 7px;font-size:11px;color:var(--navy2);font-weight:600}
+.movestat{font-size:14.5px;font-weight:800;line-height:1.3;margin:2px 0 6px}
+.move .lever{font-size:12px;color:var(--muted);margin-top:8px}
+.takeaway{background:linear-gradient(135deg,#0b3d5c,#154b6b);color:#eaf3fa;border-radius:10px;padding:18px 22px;margin:18px 0}
+.takeaway h3{color:#fff;margin:0 0 10px;font-size:16px}
+.takeaway ul{margin:0;padding-left:20px}
+.takeaway li{margin-bottom:7px;font-size:13.5px}
+.takeaway b{color:#ffd98a}
+.checklist{list-style:none;padding:0;margin:0}
+.checklist li{position:relative;padding-left:22px;margin-bottom:6px;font-size:13px;line-height:1.4}
+.checklist.good li::before{content:"✓";color:var(--green);font-weight:800;position:absolute;left:0}
+.checklist.bad li::before{content:"✗";color:var(--red);font-weight:800;position:absolute;left:0}
+.rank{margin-left:auto;font-size:11px;color:var(--muted);font-weight:700;background:#eef3f7;border-radius:10px;padding:2px 9px}
+.movestat{font-size:15px !important;line-height:1.35 !important}
+.move .h b{flex:0 1 auto}
+.hero{background:linear-gradient(180deg,#e8f0f6,#ffffff);border:2px solid var(--navy);border-radius:14px;padding:16px 18px 18px;margin:4px 0 24px;box-shadow:0 6px 22px rgba(11,61,92,.13)}
+.hero-cap{font-size:18px;font-weight:800;color:var(--navy);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.hero-cap::before{content:"";width:10px;height:22px;background:var(--navy);border-radius:3px;display:inline-block}
+.hero-svg{border:none !important;background:transparent !important;padding:0 !important}
+.hero-insight{margin-top:12px;text-align:center;font-size:17px;color:var(--navy);font-weight:800}
+</style>
+</head>
+<body>
+<header>
+  <h1>Delhi Air + Waste: A Systemic Landscape</h1>
+  <p>One interlocked system, not two problems. Built for the RF + RM task force to see the crisis, the leverage, and the partners in one place. All figures are sourced and honesty-flagged where contested. Draft v0.1, 13 Sep 2026.</p>
+</header>
+<nav class="tabs">
+  <button class="tab active" data-p="crisis">1 &nbsp;The Crisis</button>
+  <button class="tab" data-p="system">2 &nbsp;The System</button>
+  <button class="tab" data-p="action">3 &nbsp;Action &amp; Partners</button>
+</nav>
+<main>
+
+<!-- ================= TAB 1: CRISIS ================= -->
+<section class="panel active" id="crisis">
+  <h2 class="sec">The crisis in numbers</h2>
+  <p class="lead">Delhi's air is improving off a catastrophic base but is still the worst among world capitals; its waste system dumps a city's worth of garbage into landfills every single day. The two are linked.</p>
+  <div class="cards" id="statcards"></div>
+
+  <div class="grid2">
+    <div class="box">
+      <h3>Air quality, last 8 years (Jan to Nov average)</h3>
+      <div id="trend"></div>
+      <div class="note">PM2.5 in ug/m3. Government CAQM/PIB Jan-Nov series (excludes December, the worst month). National annual standard = 40; WHO = 5.</div>
+    </div>
+    <div class="box">
+      <h3>Where the pollution comes from</h3>
+      <div id="apportion"></div>
+      <div class="note">Within Delhi city, transport leads; across the wider NCR, residential + industry + farm-burning dominate. ~65 to 70% of winter PM2.5 is regional (Haryana/Punjab/UP).</div>
+    </div>
+  </div>
+
+  <h2 class="sec">The waste ledger</h2>
+  <div class="grid2">
+    <div class="box">
+      <h3>Generated vs processed (TPD)</h3>
+      <div id="wastebar"></div>
+      <div class="note">~4,200 tonnes per day dumped unprocessed. Source segregation stuck at ~55% (self-reports run higher; treat with caution).</div>
+    </div>
+    <div class="box">
+      <h3>The three landfills (lakh tonnes remaining, Feb 2026)</h3>
+      <div id="landfill"></div>
+      <div class="note">~11.5 million tonnes of legacy waste remain despite record biomining. Ghazipur grew from 65 m to 67 m even while being mined.</div>
+    </div>
+  </div>
+
+  <h2 class="sec">Where the crisis concentrates</h2>
+  <div class="grid2">
+    <div class="box">
+      <h3>Delhi hotspot map</h3>
+      <div id="hotmap"></div>
+      <div class="note">Real NCT of Delhi boundary (GADM). Marker positions are approximate; click a marker for detail.</div>
+    </div>
+    <div class="box">
+      <h3 id="hotname">The hotspots</h3>
+      <div id="hotdetail" style="font-size:13.5px;color:var(--ink);min-height:70px">Click any marker on the map to see what it is and why it matters. The same map carries the air story (Anand Vihar, smog towers) and the waste story (the three landfills, Seelampur e-waste, Okhla WtE, the Najafgarh drain), because they share the same city.</div>
+      <div id="hotlegend" style="margin-top:14px"></div>
+    </div>
+  </div>
+
+  <h2 class="sec">Measures in place, and how they are doing</h2>
+  <table id="effect"></table>
+
+  <h2 class="sec">Who runs it, and where the deadlines stand</h2>
+  <div class="grid2">
+    <div class="box"><h3>Who governs what</h3><table id="govtable"></table></div>
+    <div class="box"><h3>Key deadlines, and what is slipping</h3><table id="timeline"></table></div>
+  </div>
+
+  <div class="flag"><b>Read the data honestly:</b> a 2025 CAG report found Delhi's monitoring stations mis-sited and its AQI unreliable; MSW composition rests on a 2005 study; plastic tonnage is contested (690 vs 1,145 TPD); e-waste, sanitary and hazardous volumes are not reliably quantified. These gaps are the first work items, not a reason to wait.</div>
+</section>
+
+<!-- ================= TAB 2: SYSTEM ================= -->
+<section class="panel" id="system">
+  <div class="hero">
+    <div class="hero-cap">One system, start to finish</div>
+    <div class="svgwrap hero-svg" id="diagram"><svg xmlns="http://www.w3.org/2000/svg" width="1300" height="384" viewBox="0 0 1300 384">
+<defs><marker id="ah" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L7,3 L0,6 Z" fill="#0b3d5c"/></marker><marker id="ao" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L7,3 L0,6 Z" fill="#8a4d16"/></marker></defs>
+<rect x="0" y="0" width="1300" height="384" rx="0" fill="#ffffff" stroke="#ffffff" stroke-width="0"/>
+<text x="205" y="28" font-family="Helvetica,Arial,sans-serif" font-size="13.5" fill="#0b3d5c" font-weight="bold" text-anchor="middle">WHERE IT STARTS</text>
+<text x="490" y="28" font-family="Helvetica,Arial,sans-serif" font-size="13.5" fill="#0b3d5c" font-weight="bold" text-anchor="middle">WHAT GOES WRONG</text>
+<text x="790" y="28" font-family="Helvetica,Arial,sans-serif" font-size="13.5" fill="#0b3d5c" font-weight="bold" text-anchor="middle">WINTER TRAPS IT</text>
+<text x="1105" y="28" font-family="Helvetica,Arial,sans-serif" font-size="13.5" fill="#0b3d5c" font-weight="bold" text-anchor="middle">WHAT IT COSTS US</text>
+<rect x="100" y="46" width="210" height="120" rx="10" fill="#eaf3ee" stroke="#2e7d5b" stroke-width="1.5"/>
+<text x="114" y="70" font-family="Helvetica,Arial,sans-serif" font-size="12.5" fill="#2e7d5b" font-weight="bold" text-anchor="start">WASTE</text>
+<text x="114" y="90" font-family="Helvetica,Arial,sans-serif" font-size="11.5" fill="#1a2733" font-weight="normal" text-anchor="start">food / wet waste (~half)</text>
+<text x="114" y="108" font-family="Helvetica,Arial,sans-serif" font-size="11.5" fill="#1a2733" font-weight="normal" text-anchor="start">plastic and paper</text>
+<text x="114" y="126" font-family="Helvetica,Arial,sans-serif" font-size="11.5" fill="#1a2733" font-weight="normal" text-anchor="start">old electronics</text>
+<text x="114" y="144" font-family="Helvetica,Arial,sans-serif" font-size="11.5" fill="#1a2733" font-weight="normal" text-anchor="start">building debris</text>
+<rect x="100" y="180" width="210" height="86" rx="10" fill="#eaf3ee" stroke="#2e7d5b" stroke-width="1.5"/>
+<text x="114" y="204" font-family="Helvetica,Arial,sans-serif" font-size="12.5" fill="#2e7d5b" font-weight="bold" text-anchor="start">BURNING</text>
+<text x="114" y="224" font-family="Helvetica,Arial,sans-serif" font-size="11.5" fill="#1a2733" font-weight="normal" text-anchor="start">diesel vehicles</text>
+<text x="114" y="242" font-family="Helvetica,Arial,sans-serif" font-size="11.5" fill="#1a2733" font-weight="normal" text-anchor="start">factories</text>
+<rect x="380" y="46" width="220" height="220" rx="10" fill="#fbefe2" stroke="#c9772f" stroke-width="1.5"/>
+<text x="396" y="78" font-family="Helvetica,Arial,sans-serif" font-size="12.5" fill="#8a4d16" font-weight="normal" text-anchor="start">• waste not separated (~55%)</text>
+<text x="396" y="116" font-family="Helvetica,Arial,sans-serif" font-size="12.5" fill="#8a4d16" font-weight="normal" text-anchor="start">• 4,200 tonnes dumped daily</text>
+<text x="396" y="154" font-family="Helvetica,Arial,sans-serif" font-size="12.5" fill="#8a4d16" font-weight="normal" text-anchor="start">• rubbish burned in the open</text>
+<text x="396" y="192" font-family="Helvetica,Arial,sans-serif" font-size="12.5" fill="#8a4d16" font-weight="normal" text-anchor="start">• landfill fires</text>
+<text x="396" y="230" font-family="Helvetica,Arial,sans-serif" font-size="12.5" fill="#8a4d16" font-weight="normal" text-anchor="start">• dirty incineration</text>
+<rect x="670" y="46" width="240" height="100" rx="10" fill="#f7e6e6" stroke="#a63a3a" stroke-width="1.5"/>
+<text x="686" y="70" font-family="Helvetica,Arial,sans-serif" font-size="12.5" fill="#a63a3a" font-weight="bold" text-anchor="start">THE DIRTY AIR</text>
+<text x="686" y="92" font-family="Helvetica,Arial,sans-serif" font-size="11.5" fill="#1a2733" font-weight="normal" text-anchor="start">soot, methane, toxic smoke, dust</text>
+<text x="686" y="112" font-family="Helvetica,Arial,sans-serif" font-size="11.5" fill="#1a2733" font-weight="normal" text-anchor="start">+ more particles form in the air</text>
+<rect x="670" y="162" width="240" height="104" rx="10" fill="#f0d6d6" stroke="#a63a3a" stroke-width="1.5"/>
+<text x="686" y="184" font-family="Helvetica,Arial,sans-serif" font-size="12.5" fill="#a63a3a" font-weight="bold" text-anchor="start">WINTER LID</text>
+<text x="686" y="204" font-family="Helvetica,Arial,sans-serif" font-size="11.5" fill="#1a2733" font-weight="normal" text-anchor="start">the sky lid drops, wind stops</text>
+<text x="686" y="223" font-family="Helvetica,Arial,sans-serif" font-size="11.5" fill="#1a2733" font-weight="normal" text-anchor="start">much blows in from nearby states</text>
+<text x="686" y="243" font-family="Helvetica,Arial,sans-serif" font-size="11.5" fill="#a63a3a" font-weight="bold" text-anchor="start">air gets 5 to 10 times worse</text>
+<rect x="980" y="46" width="250" height="220" rx="10" fill="#efe3e3" stroke="#5c1a1a" stroke-width="1.5"/>
+<text x="996" y="76" font-family="Helvetica,Arial,sans-serif" font-size="12.5" fill="#5c1a1a" font-weight="bold" text-anchor="start">~12,000 deaths a year</text>
+<text x="996" y="96" font-family="Helvetica,Arial,sans-serif" font-size="11" fill="#7a5555" font-weight="normal" text-anchor="start">from this air (Delhi)</text>
+<text x="996" y="142" font-family="Helvetica,Arial,sans-serif" font-size="12.5" fill="#5c1a1a" font-weight="bold" text-anchor="start">Yamuna river: Delhi = 76%</text>
+<text x="996" y="162" font-family="Helvetica,Arial,sans-serif" font-size="11" fill="#7a5555" font-weight="normal" text-anchor="start">of the pollution</text>
+<text x="996" y="214" font-family="Helvetica,Arial,sans-serif" font-size="12.5" fill="#5c1a1a" font-weight="bold" text-anchor="start">huge methane from landfills</text>
+<line x1="310" y1="156" x2="378" y2="156" stroke="#0b3d5c" stroke-width="3.5" marker-end="url(#ah)"/>
+<line x1="600" y1="156" x2="668" y2="156" stroke="#0b3d5c" stroke-width="3.5" marker-end="url(#ah)"/>
+<line x1="910" y1="156" x2="978" y2="156" stroke="#0b3d5c" stroke-width="3.5" marker-end="url(#ah)"/>
+<line x1="1105" y1="266" x2="1105" y2="298" stroke="#0b3d5c" stroke-width="2.5" marker-end="url(#ah)"/>
+<rect x="380" y="300" width="850" height="60" rx="10" fill="#eceff2" stroke="#556" stroke-width="1.5"/>
+<text x="396" y="324" font-family="Helvetica,Arial,sans-serif" font-size="12.5" fill="#334" font-weight="bold" text-anchor="start">WHAT WE DO NOW (react late, every winter):</text>
+<text x="396" y="344" font-family="Helvetica,Arial,sans-serif" font-size="12" fill="#445" font-weight="normal" text-anchor="start">emergency bans, smog towers (broken), digging out landfills, spraying water. None of it stops the mess at the start.</text>
+<path d="M380,330 L58,330 L58,116 Q58,104 70,104 L96,104" fill="none" stroke="#8a4d16" stroke-width="2.5" stroke-dasharray="7,5" marker-end="url(#ao)"/>
+<text x="34" y="205" font-family="Helvetica,Arial,sans-serif" font-size="11.5" fill="#8a4d16" font-weight="bold" text-anchor="middle" transform="rotate(-90 34 205)">so it comes back every winter</text>
+</svg></div>
+    <div class="hero-insight">We spend on reacting at the <span style="color:var(--red)">end</span>, but the fixes are at the <span style="color:var(--green)">start</span>.</div>
+  </div>
+
+  <h2 class="sec">Working vs not working (the numbers)</h2>
+  <div class="grid2">
+    <div class="box" style="border-left:4px solid var(--green)"><h3 style="color:var(--green)">What genuinely improved</h3><ul id="sysgood" class="checklist good"></ul></div>
+    <div class="box" style="border-left:4px solid var(--red)"><h3 style="color:var(--red)">What is not working</h3><ul id="sysbad" class="checklist bad"></ul></div>
+  </div>
+
+  <h2 class="sec">What to do (in order of how much it helps)</h2>
+  <p class="lead">Four fixes, ordered by impact. Partners and detail on Tab 3.</p>
+  <div class="moves" id="movecards"></div>
+
+  <div class="takeaway">
+    <h3>What this means for government</h3>
+    <ul>
+      <li><b>Government holds the lever for all four fixes</b> (contracts, budgets, worker inclusion, data), and none need a new law.</li>
+      <li><b>It already spends more reacting than prevention would cost.</b> Start with A and D.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= TAB 3: ACTION ================= -->
+<section class="panel" id="action">
+  <h2 class="sec">Action &amp; Partner Map</h2>
+  <p class="lead">For every stream and driver: what is broken, the low-hanging fix we can chase in under a year, and who can do it. Filter by the systemic move it serves.</p>
+  <div class="chips" id="filters">
+    <span class="chip active" data-m="all">All</span>
+    <span class="chip" data-m="A">A · Front end</span>
+    <span class="chip" data-m="B">B · Informal</span>
+    <span class="chip" data-m="C">C · Visibility</span>
+    <span class="chip" data-m="D">D · Money</span>
+  </div>
+  <table id="actionmap"></table>
+
+  <h2 class="sec">Start here: the 5 do-first moves</h2>
+  <ol id="dofirst" style="font-size:14px"></ol>
+
+  <h2 class="sec">Financials: the money is already there</h2>
+  <p class="lead">The fixes are cheap or self-funding. The gap is not money, it is money pointed downstream. Here is what can be redirected, and how each fix gets paid for.</p>
+  <div class="grid2">
+    <div class="box"><h3>Money already in the system (can be redirected)</h3><table id="moneytab"></table></div>
+    <div class="box"><h3>What each fix needs, and who funds it</h3><table id="fixfin"></table></div>
+  </div>
+
+  <h2 class="sec">If we set up a task force, how</h2>
+  <table id="phases"></table>
+  <div class="box" style="margin-top:12px;font-size:13.5px">
+    <b style="color:var(--navy)">Who is in the room:</b> conveners (RF + RM), a government owner (MCD / DPCC / CAQM), 2 to 3 implementing partners per lever (from the directory below), a funder / CSR, a data and research anchor, and community and advocacy voices.<br>
+    <b style="color:var(--navy)">How it runs:</b> a small steering group plus one working group per lever, meeting monthly, with this dashboard as the shared tracker. Pilot first, then scale what works.
+  </div>
+
+  <h2 class="sec">Partner directory</h2>
+  <p class="lead">The Delhi air and waste ecosystem: organisations working across these streams. Filter by sector.</p>
+  <div class="chips" id="pfilters">
+    <span class="chip active" data-s="all">All</span>
+    <span class="chip" data-s="Air">Air</span>
+    <span class="chip" data-s="Waste">Waste</span>
+    <span class="chip" data-s="Policy">Policy</span>
+    <span class="chip" data-s="Research">Research</span>
+    <span class="chip" data-s="VC">VC</span>
+  </div>
+  <table id="pdir"></table>
+
+  <div class="flag"><b>An indicative ecosystem map</b> of organisations and government owners working across these areas. The givens (winter meteorology, the regional airshed, the legacy stock) are not on this map by design.</div>
+</section>
+
+<div class="foot" id="foot"></div>
+</main>
+
+<script>
+/* ---------- DATA ---------- */
+const D = {
+  stats:[
+    {big:"~105", lab:"annual PM2.5 (ug/m3), ~2.6x the national standard", c:"bad"},
+    {big:"#1", lab:"world's most polluted capital, every year 2018 to 2024", c:"bad"},
+    {big:"11,850", lab:"tonnes/day of solid waste; only ~64% processed", c:"warn"},
+    {big:"4,200", lab:"tonnes dumped unprocessed every single day", c:"bad"},
+    {big:"~65-70%", lab:"of winter PM2.5 blows in from the regional airshed", c:"warn"},
+    {big:"~12,000", lab:"Delhi deaths/yr attributed to PM2.5 (Lancet 2024)", c:"bad"},
+  ],
+  trendYears:["2018","2019","2020","2021","2022","2023","2024","2025"],
+  trendPM:[103,99,85,95,90,90,98,85],
+  apportion:{
+    "Delhi city (winter)":[["Industry",30,"#a63a3a"],["Transport",28,"#c9772f"],["Dust",17,"#2456a6"],["Biomass",14,"#2e7d5b"],["Other",11,"#8a99a6"]],
+    "Wider NCR":[["Residential",25,"#6b3fa0"],["Industry",24,"#a63a3a"],["Farm burning",19,"#2e7d5b"],["Other",19,"#8a99a6"],["Transport",13,"#c9772f"]]
+  },
+  waste:[["Generated",11850,"#a63a3a"],["Processing capacity",8173,"#c9772f"],["Actually processed",7611,"#2e7d5b"]],
+  landfill:[["Ghazipur",68.6,"#a63a3a"],["Bhalswa",30.18,"#c9772f"],["Okhla",16.4,"#6b3fa0"]],
+  effect:[
+    ["NCAP (clean-air funds)","Only 41 of 97 cities met the initial PM10 target; ~64 to 67% of spend went to road dust, ~1% each to industry and domestic fuel","Misdirected"],
+    ["GRAP (emergency response)","Peer-reviewed: only limited PM cuts during enforcement; big drops came later with favourable weather","Reactive, weak"],
+    ["Smog towers","Connaught Place tower (₹19.42 cr) had zero recorded operating spend for two years; non-functional. DPCC: 40,000+ needed for a city effect","Failed"],
+    ["Biomining (landfills)","Record 74 lakh MT in FY25-26, but sites refill from the daily 4,200 TPD gap; ~11.5 MT still remain","Running to stand still"],
+    ["WtE plants","Documented dioxin/furan violations (Okhla 890% over limit); burning wet mixed waste is inefficient","Polluting"],
+    ["Sewage (Delhi Jal Board)","Largest treatment gap in India (~2,562 MLD); Najafgarh drain alone = ~70% of the Yamuna's load","Under-capacity"],
+  ],
+  ladder:[
+    ["Stop it at the start","Separate waste, cleaner fuel, and the money behind them","Most","Neglected: only ~55% of waste separated; trucks still paid by weight dumped"],
+    ["Deal with it in the middle","Recycling, composting, processing plants","Some","Partial: only ~64% processed; waste-pickers left out"],
+    ["React at the end","Emergency bans, smog towers, spraying, digging landfills","Least","Most of the money: two-thirds of clean-air spend on road dust; smog tower broken"],
+  ],
+  moves:[
+    {L:"A",cls:"a",title:"Separate waste from the start",help:"Helps most",color:"#2e7d5b",stat:"~55% separated today &rarr; 100% is already the Jan-2027 target. Unlocks ~6,000 TPD of wet waste and shrinks the 4,200 TPD daily dump.",why:"One habit cuts landfill methane and fires, stops plastic and e-waste being burned, and makes composting and recycling actually work.",lever:"Enforce segregation on bulk generators; back ward-level composting."},
+    {L:"D",cls:"d",title:"Fix the money",help:"Helps most",color:"#6b3fa0",stat:"Dumping costs ~Rs 14,500/tonne. ~Rs 7,600 cr of clean-air money already spent (about two-thirds on road dust) + ~Rs 3,100 cr of NGT fines sitting unused.",why:"Today the money rewards dumping. Pay for waste actually recycled, make producers pay (EPR), and use fines to clean up.",lever:"You control the contracts, the NCAP budget, EPR fees and the fines."},
+    {L:"B",cls:"b",title:"Back the waste-pickers",help:"Helps some",color:"#c9772f",stat:"~1.5 lakh pickers already recycle >2,000 TPD for free, saving the city ~Rs 1 crore a day (~Rs 365 cr a year), at near-zero capital.",why:"Proven, cheap capacity already diverting a fifth of the waste, but left out of the system.",lever:"Fold them into MCD collection and recycling with IDs and contracts."},
+    {L:"C",cls:"c",title:"Get honest, open data",help:"Makes the rest work",color:"#2456a6",stat:"Air readings ruled unreliable (CAG 2025). The waste mix was last measured in 2005 (21 years ago). Plastic tonnage still disputed (690 vs 1,145 TPD).",why:"You cannot fix, fund, or hold anyone to account for what you cannot measure.",lever:"Order a fresh waste survey, re-site the monitors, and open the data."},
+  ],
+  map:[
+    ["Wet / organic (~6,000 TPD)","Mixed, dumped; no decentralised composting","Bulk-generator segregation + ward composting","Hasirudala, Carbon Masters, Saroja Earth; MCD, RWAs","AD"],
+    ["Dry recyclable (~1,800 TPD)","Wet contamination; pickers excluded","Back-integrate kabadiwalas into MRFs","Hasirudala, Green Worms; MCD","AB"],
+    ["Plastic (~690-1,145 TPD)","SUP ban weak; ~2% recycled","Hotspot enforcement + brand EPR offtake","Green Worms, Karo Sambhav; DPCC","ABD"],
+    ["E-waste (~2 lakh t/yr)","Open cable/PCB burning (Seelampur)","Safe-dismantling + formal buy-back pilot","Karo Sambhav; DPCC","BD"],
+    ["Sanitary (~100% unsegregated)","No separate system; ~90% plastic","Separate collection + school/RWA pilots","Padcare; DPCC, RWAs","A"],
+    ["Biomedical (~40 TPD; 2 CBWTFs)","Too few facilities; no data post-2017","Audit + barcode tracking + capacity","Maridi & Ramky; DPCC, hospitals","C"],
+    ["C&D debris (~6,500 TPD)","Illegal dumping; recycled product unused","On-site dust enforcement + recycled-C&D tender mandate","WRI, APAG; MCD, PWD","AD"],
+    ["Domestic hazardous (<1%)","Mixed in; no routing","Collection points + battery EPR","Karo Sambhav; DPCC","BD"],
+    ["Liquid / sewage (2,562 MLD gap)","STPs non-compliant; Najafgarh = 70% Yamuna BOD","Intercept biggest drains + STP compliance","Delhi Jal Board","D"],
+    ["Legacy landfills (~11.5 MT)","Refill as mined","Sustain biomining + close the daily-dump tap","Saroja Earth, Carbon Masters; MCD","AD"],
+    ["Diesel / black carbon (air)","Largest local PM2.5; ~80% BC from diesel","EV/CNG freight + PUC integrity fix","Aurassure, Karban, Greengine; CAQM","C"],
+    ["Open burning (air)","Waste + leaves burned in the open","Enforcement + the segregation fixes above","Saroja Earth; MCD, DPCC","A"],
+    ["Monitoring integrity (air)","CAG: stations mis-sited, AQI unreliable","Re-site stations, open data, sensor mesh","Aurassure, CSTEP, IIT-Delhi, CEEW","C"],
+  ],
+  dofirst:[
+    "<b>Bulk-generator + RWA segregation and composting</b> (wet + dry). Biggest single lever, visible, high buy-in. &rarr; Hasirudala, Carbon Masters + MCD.",
+    "<b>Formalise the informal recyclers</b> (dry + plastic). Cheap, proven, creates jobs. &rarr; Hasirudala, Green Worms + MCD.",
+    "<b>Seelampur e-waste safe-dismantling pilot.</b> A clear air + health win in a defined area. &rarr; Karo Sambhav + DPCC.",
+    "<b>C&amp;D dust enforcement + recycled-product tender mandate.</b> Cuts winter dust; GRAP-aligned. &rarr; WRI, APAG + MCD/PWD.",
+    "<b>Monitoring-integrity fix + sensor mesh.</b> Makes every other action measurable. &rarr; Aurassure, CSTEP, IIT-Delhi + CPCB.",
+  ]
+};
+
+/* ---------- CHART HELPERS (inline SVG) ---------- */
+function lineChart(el,years,vals){
+  const W=460,H=230,pad=38, max=Math.max(...vals)*1.15, min=0;
+  const x=i=>pad+ i*(W-pad-14)/(years.length-1);
+  const y=v=>H-28-(v-min)/(max-min)*(H-28-14);
+  let g=`<svg viewBox="0 0 ${W} ${H}">`;
+  [0,25,50,75,100].forEach(v=>{if(v<=max){g+=`<line x1="${pad}" y1="${y(v)}" x2="${W-14}" y2="${y(v)}" stroke="#e6edf2"/><text x="${pad-6}" y="${y(v)+4}" font-size="10" fill="#8a99a6" text-anchor="end">${v}</text>`}});
+  g+=`<line x1="${pad}" y1="${y(40)}" x2="${W-14}" y2="${y(40)}" stroke="#a63a3a" stroke-dasharray="5,4"/><text x="${W-16}" y="${y(40)-4}" font-size="9.5" fill="#a63a3a" text-anchor="end">national std 40</text>`;
+  let pts=vals.map((v,i)=>`${x(i)},${y(v)}`).join(" ");
+  g+=`<polyline points="${pts}" fill="none" stroke="#0b3d5c" stroke-width="2.5"/>`;
+  vals.forEach((v,i)=>{g+=`<circle cx="${x(i)}" cy="${y(v)}" r="3.5" fill="#0b3d5c"/><text x="${x(i)}" y="${y(v)-9}" font-size="9.5" fill="#0b3d5c" text-anchor="middle" font-weight="700">${v}</text><text x="${x(i)}" y="${H-10}" font-size="10" fill="#5a6b7a" text-anchor="middle">${years[i].slice(2)}</text>`});
+  g+=`</svg>`; el.innerHTML=g;
+}
+function stackBar(el,groups){
+  let g=`<svg viewBox="0 0 460 ${Object.keys(groups).length*88+10}">`; let gy=14;
+  for(const name in groups){
+    g+=`<text x="0" y="${gy-2}" font-size="12" font-weight="700" fill="#154b6b">${name}</text>`;
+    let xx=0; const bw=440;
+    groups[name].forEach(([lab,val,col])=>{
+      const w=val/100*bw;
+      g+=`<rect x="${xx}" y="${gy+6}" width="${w}" height="26" fill="${col}"/>`;
+      if(w>34)g+=`<text x="${xx+w/2}" y="${gy+23}" font-size="10.5" fill="#fff" text-anchor="middle" font-weight="700">${val}%</text>`;
+      xx+=w;
+    });
+    // legend
+    let lx=0;
+    groups[name].forEach(([lab,val,col])=>{
+      g+=`<rect x="${lx}" y="${gy+40}" width="10" height="10" fill="${col}"/><text x="${lx+14}" y="${gy+49}" font-size="10" fill="#5a6b7a">${lab}</text>`;
+      lx+=Math.max(60,lab.length*6.3+22);
+    });
+    gy+=88;
+  }
+  g+=`</svg>`; el.innerHTML=g;
+}
+function barChart(el,rows,unit,maxOverride){
+  const max=maxOverride||Math.max(...rows.map(r=>r[1]))*1.1;
+  let g=`<svg viewBox="0 0 460 ${rows.length*46+10}">`;
+  rows.forEach((r,i)=>{
+    const y=12+i*46, w=r[1]/max*300;
+    g+=`<text x="0" y="${y+18}" font-size="12" fill="#1a2733">${r[0]}</text>`;
+    g+=`<rect x="150" y="${y+4}" width="${w}" height="22" rx="3" fill="${r[2]}"/>`;
+    g+=`<text x="${150+w+6}" y="${y+20}" font-size="11.5" font-weight="700" fill="#1a2733">${r[1].toLocaleString()}${unit||""}</text>`;
+  });
+  g+=`</svg>`; el.innerHTML=g;
+}
+
+/* ---------- RENDER ---------- */
+document.getElementById('statcards').innerHTML=D.stats.map(s=>`<div class="stat ${s.c}"><div class="big">${s.big}</div><div class="lab">${s.lab}</div></div>`).join("");
+lineChart(document.getElementById('trend'),D.trendYears,D.trendPM);
+stackBar(document.getElementById('apportion'),D.apportion);
+barChart(document.getElementById('wastebar'),D.waste," ",13000);
+barChart(document.getElementById('landfill'),D.landfill," lakh MT",75);
+
+document.getElementById('effect').innerHTML=`<tr><th>Measure</th><th>What the evidence shows</th><th>Verdict</th></tr>`+
+  D.effect.map(r=>`<tr><td><b>${r[0]}</b></td><td>${r[1]}</td><td><span class="pill">${r[2]}</span></td></tr>`).join("");
+
+document.getElementById('movecards').innerHTML=D.moves.map((m,i)=>`
+  <div class="move ${m.cls}"><div class="h"><span class="mtag m${m.L}">${m.L}</span><b>${m.title}</b><span class="rank">#${i+1}</span></div>
+  <div style="margin:0 0 7px"><span class="pill" style="background:${m.color}22;color:${m.color}">${m.help}</span></div>
+  <div class="movestat" style="color:${m.color}">${m.stat}</div>
+  <div class="lever"><b style="color:var(--navy)">Lever:</b> ${m.lever}</div></div>`).join("");
+
+function mtags(str){return str.split("").map(c=>`<span class="mtag m${c}">${c}</span>`).join("")}
+function renderMap(filter){
+  const rows=D.map.filter(r=>filter==="all"||r[4].includes(filter));
+  document.getElementById('actionmap').innerHTML=`<tr><th style="width:20%">Stream / driver</th><th style="width:24%">What is broken</th><th style="width:26%">Low-hanging fix (0 to 12 mo)</th><th style="width:22%">Partners</th><th style="width:8%">Serves</th></tr>`+
+    rows.map(r=>`<tr><td><b>${r[0]}</b></td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td><td>${mtags(r[4])}</td></tr>`).join("");
+}
+renderMap("all");
+
+/* ---------- DELHI HOTSPOT MAP ---------- */
+const HOT={
+  cats:{landfill:["Landfill","#a63a3a"],ewaste:["E-waste","#6b3fa0"],air:["Air hotspot","#c9772f"],wte:["Waste-to-energy","#2456a6"],water:["Sewage / drain","#1f7a7a"]},
+  bound:[[77.2173,28.8353],[77.2136,28.8135],[77.1946,28.8154],[77.1944,28.8023],[77.1969,28.7953],[77.2027,28.7894],[77.2085,28.7872],[77.2131,28.7864],[77.2183,28.7876],[77.2247,28.7876],[77.2221,28.7837],[77.2171,28.7817],[77.2209,28.7779],[77.229,28.7724],[77.238,28.7592],[77.2459,28.7574],[77.2485,28.7575],[77.2532,28.7528],[77.2519,28.7455],[77.2562,28.7399],[77.2599,28.7381],[77.2664,28.7393],[77.2711,28.7382],[77.2769,28.7344],[77.2807,28.73],[77.2844,28.7239],[77.2837,28.719],[77.2849,28.7125],[77.2929,28.7098],[77.2956,28.713],[77.3015,28.7167],[77.3062,28.7177],[77.3172,28.7172],[77.3235,28.7159],[77.3217,28.7118],[77.3198,28.7036],[77.3209,28.6997],[77.3276,28.6918],[77.3271,28.6852],[77.3254,28.6825],[77.3179,28.6793],[77.3176,28.6716],[77.3154,28.6633],[77.3153,28.6514],[77.3131,28.6467],[77.3112,28.6446],[77.3136,28.6432],[77.321,28.636],[77.3305,28.6314],[77.3342,28.627],[77.3371,28.6219],[77.3375,28.6175],[77.3362,28.6089],[77.3332,28.6067],[77.3278,28.6049],[77.3169,28.6],[77.3099,28.599],[77.3071,28.5969],[77.2949,28.5824],[77.2936,28.5797],[77.2938,28.5667],[77.2952,28.5612],[77.3031,28.5505],[77.3107,28.5437],[77.3149,28.5415],[77.3215,28.5359],[77.3305,28.5241],[77.334,28.5207],[77.3368,28.5157],[77.3377,28.509],[77.3345,28.5111],[77.329,28.5083],[77.3267,28.5035],[77.3217,28.4994],[77.3149,28.4946],[77.3069,28.4907],[77.3009,28.4901],[77.2963,28.4911],[77.2858,28.4963],[77.2781,28.4981],[77.2711,28.497],[77.2601,28.4884],[77.254,28.4855],[77.2427,28.4846],[77.2367,28.4797],[77.2324,28.4758],[77.2276,28.4697],[77.2257,28.464],[77.2264,28.4603],[77.2331,28.4594],[77.2399,28.4536],[77.2433,28.4475],[77.2443,28.4417],[77.2432,28.4337],[77.2406,28.4289],[77.2227,28.419],[77.2153,28.4157],[77.2059,28.4134],[77.1952,28.4125],[77.1795,28.4124],[77.1658,28.4085],[77.1543,28.4213],[77.1519,28.4283],[77.1424,28.4357],[77.1314,28.4387],[77.1241,28.4392],[77.1183,28.4424],[77.1125,28.4502],[77.1087,28.4574],[77.106,28.4659],[77.1027,28.4704],[77.1015,28.4765],[77.1033,28.4831],[77.1077,28.4939],[77.1035,28.4975],[77.0903,28.5055],[77.086,28.5109],[77.0725,28.5203],[77.0675,28.5207],[77.057,28.5139],[77.0488,28.5152],[77.0417,28.519],[77.0331,28.5283],[77.0196,28.5333],[77.0157,28.5333],[77.0061,28.5428],[77.0002,28.542],[76.9959,28.5369],[76.9982,28.5322],[77.005,28.5287],[77.0114,28.5241],[77.0109,28.518],[77.0055,28.5144],[76.9903,28.5198],[76.9765,28.5238],[76.9685,28.5276],[76.9446,28.5136],[76.9332,28.516],[76.9227,28.5193],[76.9085,28.5149],[76.8975,28.5178],[76.8937,28.5161],[76.8868,28.5112],[76.8794,28.5091],[76.8738,28.5144],[76.8795,28.524],[76.8763,28.5284],[76.8592,28.5419],[76.8567,28.5478],[76.8376,28.557],[76.8329,28.5825],[76.835,28.5914],[76.8502,28.5901],[76.8548,28.5924],[76.8609,28.6025],[76.8779,28.6376],[76.8937,28.6328],[76.8973,28.6328],[76.904,28.6379],[76.9103,28.6378],[76.9237,28.6287],[76.926,28.6292],[76.9339,28.6376],[76.9182,28.6533],[76.9175,28.6573],[76.9231,28.6692],[76.9297,28.6744],[76.9426,28.6751],[76.9473,28.6772],[76.946,28.6835],[76.9484,28.688],[76.95,28.6941],[76.9542,28.7005],[76.9546,28.7054],[76.951,28.7098],[76.9413,28.717],[76.9507,28.7365],[76.9492,28.7415],[76.9503,28.7467],[76.9474,28.7511],[76.9382,28.7596],[76.9466,28.774],[76.944,28.7785],[76.9423,28.7878],[76.9431,28.7951],[76.9375,28.8035],[76.9374,28.8092],[76.9423,28.8207],[76.9482,28.8177],[76.9558,28.82],[76.958,28.8303],[76.9608,28.8317],[76.9706,28.8251],[76.9737,28.8258],[76.9796,28.8367],[76.9835,28.8391],[76.9897,28.8392],[77.0066,28.8353],[77.0188,28.8371],[77.0247,28.8363],[77.0315,28.8368],[77.0377,28.8528],[77.0498,28.8732],[77.0657,28.873],[77.0701,28.88],[77.0759,28.8845],[77.0834,28.8746],[77.0995,28.8724],[77.1071,28.8685],[77.1097,28.8661],[77.1285,28.8654],[77.1351,28.8585],[77.1356,28.8527],[77.1338,28.8447],[77.1392,28.8417],[77.1424,28.8425],[77.1507,28.8484],[77.1596,28.8574],[77.1646,28.8606],[77.1836,28.8623],[77.1869,28.8668],[77.1935,28.8654],[77.1996,28.8649],[77.2048,28.8629],[77.2078,28.8602],[77.2115,28.8549],[77.2106,28.8453],[77.2173,28.8353]],
+  river:[[77.235,28.87],[77.245,28.80],[77.255,28.72],[77.275,28.63],[77.295,28.56],[77.31,28.50]],
+  pts:[
+    {n:"Bhalswa landfill",c:"landfill",lon:77.165,lat:28.742,d:"~30 lakh MT legacy waste remaining; ~62 m high; frequent summer fires. Clearance deadline end-2026."},
+    {n:"Ghazipur landfill",c:"landfill",lon:77.327,lat:28.620,d:"Largest: ~68.6 lakh MT remaining; ~65 to 67 m (grew while being mined); major fire Apr 2024 (36 hrs). Deadline end-2027."},
+    {n:"Okhla landfill",c:"landfill",lon:77.285,lat:28.503,d:"~16.4 lakh MT remaining; sits beside the Okhla WtE plant. Deadline end-2026."},
+    {n:"Seelampur",c:"ewaste",lon:77.268,lat:28.668,d:"India's e-waste hub; ~57% of Delhi's informal units. Open burning of cables/PCBs to recover copper, acid baths; ~12% PPE use."},
+    {n:"Anand Vihar",c:"air",lon:77.315,lat:28.650,d:"Delhi's most polluted station (winter avg ~227 ug/m3). A smog tower here claims 'up to 20%' local cut at >Rs 10 lakh/month, reported intermittent."},
+    {n:"Connaught Place",c:"air",lon:77.219,lat:28.632,d:"The Rs 19.42 cr smog tower: zero recorded operating spend for two years (RTI, 2025); now non-functional."},
+    {n:"Najafgarh drain",c:"water",lon:77.060,lat:28.610,d:"Carries ~600 MGD untreated sewage and ~70% of the Yamuna's BOD load. Delhi contributes ~76% of the river's pollution."},
+    {n:"Narela-Bawana WtE",c:"wte",lon:77.045,lat:28.825,d:"~1,300 TPD / 24 MW; +3,000 TPD planned by Dec 2027. Burning wet mixed waste runs inefficiently."},
+    {n:"Okhla WtE",c:"wte",lon:77.283,lat:28.512,d:"~1,950 TPD / 23 MW (Jindal/TOWMCL). Measured dioxins/furans 890% over limit, HCl 296% over (reported to NGT)."},
+    {n:"Mundka / west-Delhi belt",c:"air",lon:77.030,lat:28.680,d:"West-Delhi industrial and open-burning belt; recurring winter PM hotspot alongside Wazirpur/Bawana clusters."}
+  ]
+};
+function drawHotmap(){
+  const pad=0.012,los=HOT.bound.map(p=>p[0]),las=HOT.bound.map(p=>p[1]);
+  const loA=Math.min(...los)-pad,loB=Math.max(...los)+pad,laA=Math.min(...las)-pad,laB=Math.max(...las)+pad;
+  const W=520,H=Math.round(W*(laB-laA)/((loB-loA)*Math.cos((laA+laB)/2*Math.PI/180)));
+  const X=lo=>((lo-loA)/(loB-loA)*W).toFixed(1), Y=la=>((laB-la)/(laB-laA)*H).toFixed(1);
+  let g=`<svg viewBox="0 0 ${W} ${H}" style="width:100%;height:auto">`;
+  g+=`<polygon points="${HOT.bound.map(p=>X(p[0])+","+Y(p[1])).join(" ")}" fill="#eef3f7" stroke="#0b3d5c" stroke-width="2"/>`;
+  g+=`<polyline points="${HOT.river.map(p=>X(p[0])+","+Y(p[1])).join(" ")}" fill="none" stroke="#7fb3c9" stroke-width="6" stroke-linecap="round" opacity="0.8"/>`;
+  g+=`<text x="${X(77.30)}" y="${Y(28.78)}" font-size="11" fill="#5a8ba0" transform="rotate(8 ${X(77.30)} ${Y(28.78)})">Yamuna</text>`;
+  HOT.pts.forEach((p,i)=>{
+    const col=HOT.cats[p.c][1];
+    g+=`<circle cx="${X(p.lon)}" cy="${Y(p.lat)}" r="9" fill="${col}" stroke="#fff" stroke-width="2" style="cursor:pointer" onclick="selHot(${i})"><title>${p.n}</title></circle>`;
+    g+=`<text x="${X(p.lon)}" y="${Y(p.lat)-13}" font-size="10.5" fill="#1a2733" text-anchor="middle" font-weight="600" style="pointer-events:none">${p.n.split(" ")[0]}</text>`;
+  });
+  g+=`</svg>`;
+  document.getElementById('hotmap').innerHTML=g;
+  document.getElementById('hotlegend').innerHTML=Object.values(HOT.cats).map(c=>`<span style="display:inline-block;margin:0 12px 6px 0;font-size:12.5px"><span style="display:inline-block;width:12px;height:12px;border-radius:50%;background:${c[1]};margin-right:5px;vertical-align:-1px"></span>${c[0]}</span>`).join("");
+}
+function selHot(i){
+  const p=HOT.pts[i], c=HOT.cats[p.c];
+  document.getElementById('hotname').innerHTML=`<span class="mtag" style="background:${c[1]};width:14px;height:14px"></span> ${p.n} <span class="pill" style="background:${c[1]}1a;color:${c[1]}">${c[0]}</span>`;
+  document.getElementById('hotdetail').innerHTML=p.d;
+}
+drawHotmap();
+document.getElementById('dofirst').innerHTML=D.dofirst.map(x=>`<li style="margin-bottom:6px">${x}</li>`).join("");
+const PARTNERS=[{"o": "Aurassure", "s": "Air Quality", "ss": "Measurement", "role": "First step with fixing Air quality of any city is to understand the extent of the problem.", "w": "https://aurassure.com"}, {"o": "Greengine", "s": "Air Quality", "ss": "Treatment", "role": "Capturing and utilizing the CO2 emitted from industrial stacks/ambient air into biomaterials and bioenergy through microalgae-based system.", "w": "http://www.greengine.co.in/"}, {"o": "Karban", "s": "Air Quality", "ss": "Tracking", "role": "While Karban is an appliance company - I am asking Karan to help nominate folks from his network who can help us understand the air quality patterns a.", "w": "https://karban.in/"}, {"o": "Hasirudala", "s": "Waste management", "ss": "Wet Waste", "role": "They help with all kinds of waste collection + working with workforce to enable the collection.", "w": "https://hasirudala.in/"}, {"o": "Karo Sambhav", "s": "Waste management", "ss": "E Waste", "role": "E Waste management.", "w": "https://www.karosambhav.com/"}, {"o": "Green Worms", "s": "Waste management", "ss": "Plastic Waste", "role": "Green Worms are very similar to Hasirudala, in the sense that they ensure they collect waste, but Green Worms focus on plastic waste.", "w": "https://www.greenworms.org/"}, {"o": "Carbon Masters", "s": "Waste management", "ss": "Wet Waste Processing", "role": "They rreduce carbon emissions by replacing fossil fuels consumption.", "w": "https://www.carbonlites.com/about.html"}, {"o": "Padcare", "s": "Waste management", "ss": "Sanitary Waste", "role": "They help collect and dispose off of sanitary waste methodically.", "w": "https://www.padcarelabs.com/"}, {"o": "Saroja Earth", "s": "Waste management", "ss": "Implementation", "role": "Cut down on air pollution and eliminate stubble burning.", "w": "https://www.saroja.earth/"}, {"o": "Maridi and Ramky", "s": "Waste management", "ss": "Hospital Waste", "role": "Biomedical and hospital-waste treatment operators.", "w": "https://www.ramkyenviro.com/"}, {"o": "Social Alpha", "s": "VC", "ss": "", "role": "Impact VC and incubator.", "w": "https://www.socialalpha.org/"}, {"o": "CEEW", "s": "Policy", "ss": "", "role": "Policy think tank: airshed management, monitoring, decision-support.", "w": "https://www.ceew.in/"}, {"o": "CSTEP", "s": "Policy", "ss": "", "role": "Policy think tank: clean-air plans and a low-cost-sensor data platform (DMS).", "w": "https://www.cstep.in/"}, {"o": "Janaagraha", "s": "Policy", "ss": "", "role": "Urban governance and civic-systems reform.", "w": "https://www.janaagraha.org/"}, {"o": "WRI", "s": "Policy", "ss": "Construction and Demolition", "role": "Drafted abnd worked with BMC(Mumbai) on their C&D policy that is currently written.", "w": "https://wri-india.org/"}, {"o": "IIT - Delhi", "s": "Research", "ss": "Inventory emission data", "role": "Emission-inventory and source-apportionment research (CERCA).", "w": "https://cerca.iitd.ac.in/"}, {"o": "APAG", "s": "Air+waste", "ss": "C&D waste and Community Mobilisation", "role": "Construction-and-demolition waste and community mobilisation.", "w": "https://a-pag.org/"}, {"o": "Lung Care Foundation", "s": "Air", "ss": "Health Apportionment", "role": "Health, source-and-health apportionment, doctor-led advocacy.", "w": "https://lcf.org.in/"}, {"o": "Warrior Moms", "s": "Air", "ss": "", "role": "Parent-led clean-air advocacy.", "w": "https://warriormomsindia.wordpress.com/"}, {"o": "Pahle Foundation(org)", "s": "Air", "ss": "Health Apportionment", "role": "Health and policy work through its PAVANA centre.", "w": "https://pahleindia.org/"}];
+function renderDir(sec){
+  const rows=PARTNERS.filter(p=>sec==="all"||(p.s||"").indexOf(sec)>-1);
+  document.getElementById("pdir").innerHTML=`<tr><th>Organisation</th><th>Sector</th><th>What they do</th><th>Link</th></tr>`+rows.map(p=>`<tr><td><b>${p.o}</b></td><td>${p.s||"-"}${p.ss?" · "+p.ss:""}</td><td>${p.role||"-"}</td><td>${p.w?`<a href="${p.w}" target="_blank" rel="noopener">site</a>`:"-"}</td></tr>`).join("");
+}
+renderDir("all");
+document.querySelectorAll("#pfilters .chip").forEach(c=>c.onclick=()=>{document.querySelectorAll("#pfilters .chip").forEach(x=>x.classList.remove("active"));c.classList.add("active");renderDir(c.dataset.s);});
+
+/* ---------- CURRENT SYSTEM (govt) ---------- */
+const GOV=[
+  ["DPCC","Delhi","State regulator (since 1991): inspections, consents, dust and genset enforcement"],
+  ["MCD / NDMC","Delhi","Waste collection, landfills, biomining, C&D, street sweeping"],
+  ["Delhi Jal Board","Delhi","Sewage, treatment plants, the Yamuna"],
+  ["Environment Dept","Delhi","Policy; runs the Green War Room and Green Delhi app"],
+  ["Transport / PWD","Delhi","Vehicles, PUC checks, EV policy, road dust"],
+  ["CAQM","Central (2021)","Runs GRAP; binding powers over NCR; replaced the Supreme Court's EPCA"],
+  ["CPCB / MoEFCC","Central","Standards, monitoring network, notifies the rules, runs NCAP"],
+  ["Supreme Court / NGT","Courts","The de-facto enforcers: vehicle bans, firecrackers, green cess"],
+];
+const TL=[
+  ["2024","NCAP first target; EV 25% of new sales","Missed","bad"],
+  ["Jul 2026","Okhla landfill cleared","At risk","warn"],
+  ["Dec 2026","Bhalswa landfill cleared","At risk","warn"],
+  ["2026","NCAP 40% cut in PM2.5 (base 2019-20)","Will miss","bad"],
+  ["Jan 2027","No new petrol/diesel 3-wheelers","Pending","warn"],
+  ["Dec 2027","Ghazipur cleared; sewage capacity 1,041 MGD","Doubtful","bad"],
+  ["2030","30% fleet electric; 'halve pollution'","Pending","warn"],
+];
+const SYSGOOD=[
+  "CAQM (2021) gave NCR one authority with real teeth; GRAP is now forecast-triggered",
+  "Biomining doubled to 30,000+ tonnes/day; ~11.9 MT of old landfill waste cleared since 2019",
+  "28 sewage plants upgraded to the higher treatment standard",
+];
+const SYSBAD=[
+  "PM2.5 is flat-to-rising (104.7 in 2024, up two years running, ~2.6x the standard)",
+  "Govt audit (2025): monitoring stations mis-sited, air data unreliable; ~Rs 843 cr green-cess left unspent",
+  "Waste separation and the plastic ban barely enforced; smog towers and incinerator compliance are documented failures",
+  "NCAP, landfill, sewage and EV deadlines are nearly all slipping",
+];
+const STC={bad:"#a63a3a",warn:"#c9772f",good:"#2e7d5b"};
+document.getElementById('govtable').innerHTML=`<tr><th>Body</th><th>Type</th><th>Role</th></tr>`+GOV.map(r=>`<tr><td><b>${r[0]}</b></td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join("");
+document.getElementById('timeline').innerHTML=`<tr><th>Deadline</th><th>Commitment</th><th>Status</th></tr>`+TL.map(r=>`<tr><td><b>${r[0]}</b></td><td>${r[1]}</td><td><span class="pill" style="background:${STC[r[3]]}22;color:${STC[r[3]]}">${r[2]}</span></td></tr>`).join("");
+document.getElementById('sysgood').innerHTML=SYSGOOD.map(x=>`<li>${x}</li>`).join("");
+document.getElementById('sysbad').innerHTML=SYSBAD.map(x=>`<li>${x}</li>`).join("");
+
+/* ---------- FINANCIALS + TASK FORCE ---------- */
+const MONEY=[
+  ["Green cess (ECC) collected","~₹1,625 cr","~₹843 cr lying unspent"],
+  ["NGT fines on the landfills","~₹3,100 cr","imposed, unlinked to clean-up"],
+  ["NCAP clean-air spend","~₹7,600 cr","~two-thirds went to road dust"],
+  ["Producer EPR fees (plastic, e-waste)","producer-funded","under-deployed"],
+  ["Waste-picker savings to the city","~₹365 cr / year","value not captured or paid"],
+];
+const FIXFIN=[
+  {L:"A",title:"Separate at the start",cost:"Low capex: bins, composters, enforcement",fund:"Municipal budget + bulk generators + EPR"},
+  {L:"D",title:"Fix the money",cost:"Not a cost: a redirection",fund:"Reallocate ECC, fines and NCAP; pay for waste diverted, not hauled"},
+  {L:"B",title:"Back the waste-pickers",cost:"Near-zero capital; a net saving",fund:"Municipal contracts + CSR"},
+  {L:"C",title:"Honest, open data",cost:"Low: a fresh waste survey, station re-siting, a sensor mesh",fund:"NCAP / DPCC + philanthropy"},
+];
+const PHASES=[
+  ["0","Weeks 0-4","Convene","RF + RM as neutral conveners; lock a government anchor (MCD / DPCC / CAQM); agree this baseline."],
+  ["1","Weeks 4-8","Scope","Pick 2 to 3 do-first pilots; name an owner, partners and a funder for each."],
+  ["2","Months 2-6","Pilot","Run in defined wards; measure honestly (fix C); redirect a slice of existing money (fix D)."],
+  ["3","Months 6-9","Review and scale","Keep what works, publish results, expand to more wards and streams."],
+];
+const MCOL={A:"#2e7d5b",B:"#1f7a7a",C:"#2456a6",D:"#6b3fa0"};
+document.getElementById("moneytab").innerHTML=`<tr><th>Source</th><th>Amount</th><th>Status now</th></tr>`+MONEY.map(r=>`<tr><td><b>${r[0]}</b></td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join("");
+document.getElementById("fixfin").innerHTML=`<tr><th>Fix</th><th>Cost</th><th>Funded by</th></tr>`+FIXFIN.map(m=>`<tr><td><span class="mtag" style="background:${MCOL[m.L]};width:16px;height:16px;line-height:16px;font-size:10px">${m.L}</span> <b>${m.title}</b></td><td>${m.cost}</td><td>${m.fund}</td></tr>`).join("");
+document.getElementById("phases").innerHTML=`<tr><th>Phase</th><th>When</th><th>Step</th><th>What happens</th></tr>`+PHASES.map(r=>`<tr><td><b>${r[0]}</b></td><td>${r[1]}</td><td><b>${r[2]}</b></td><td>${r[3]}</td></tr>`).join("");
+
+/* ---------- INTERACTION ---------- */
+document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{
+  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('.panel').forEach(x=>x.classList.remove('active'));
+  t.classList.add('active'); document.getElementById(t.dataset.p).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+});
+document.querySelectorAll('#filters .chip').forEach(c=>c.onclick=()=>{
+  document.querySelectorAll('#filters .chip').forEach(x=>x.classList.remove('active'));
+  c.classList.add('active'); renderMap(c.dataset.m);
+});
+document.getElementById('foot').innerHTML=`Public draft, self-contained and offline. Companion notes: <a href="Delhi_Air_and_Waste_Situation_Note.html">Situation Note</a> &middot; <a href="Delhi_Waste_Air_Action_Map.html">Action Map</a> &middot; <a href="Delhi_Air_Waste_Systemic_Frame.html">Systemic Frame</a>. Figures sourced; contested ones flagged throughout. Built to iterate.`;
+</script>
+</body>
+</html>
