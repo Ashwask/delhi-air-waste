@@ -98,6 +98,7 @@ svg text{font-family:'Helvetica Neue',Arial,sans-serif}
 .collapse>summary::before{content:"\25B8 ";color:var(--navy);margin-right:6px}
 .collapse[open]>summary::before{content:"\25BE "}
 .collapse>summary:hover{color:var(--navy2)}
+.callout{background:#e8f0f6;border-left:4px solid var(--navy);padding:10px 14px;border-radius:6px;font-size:14px;color:var(--navy2);font-weight:600;margin:0 0 12px}
 </style>
 </head>
 <body>
@@ -277,6 +278,7 @@ svg text{font-family:'Helvetica Neue',Arial,sans-serif}
 
   <h2 class="sec">What we can leverage (already exists)</h2>
   <p class="lead">Systems and work already running that a task force can plug into, rather than build from scratch.</p>
+  <div class="callout">Most of what is needed already exists or is already paid for. The job is to redirect idle money and switch on assets that are built but unused, not to build new things.</div>
   <table id="leverage"></table>
 
   <details class="collapse">
@@ -562,21 +564,22 @@ document.getElementById("phases").innerHTML=`<tr><th>Phase</th><th>When</th><th>
 
 /* ---------- LEVERAGE + ABBREVIATIONS ---------- */
 const LEVERAGE=[
-  ["Green War Room + Green Delhi app","GNCTD 24x7 cell + citizen complaint app","Route segregation and open-burning complaints; act on hotspots (A)"],
-  ["Real-time source apportionment supersite","DPCC + IIT-Kanpur, ~₹12 cr","Use its output (currently under-used) to target sources (C)"],
-  ["CSTEP DMS","Open data platform for low-cost sensors","Backbone for a city-wide sensor mesh (C)"],
-  ["Sameer app + CPCB dashboards","National AQ data and citizen app","Open data and public engagement (C)"],
-  ["Biomining programme","MCD, ~30,000 TPD","Pair with front-end segregation so sites stop refilling (A, D)"],
-  ["CBWTFs + C&D plants","2 biomedical facilities + ~5,000 TPD C&D capacity","Route biomedical and C&D streams properly (streams 6, 7)"],
-  ["EPR portals","CPCB plastic, e-waste and battery EPR","Channel producer money into stream fixes (D)"],
-  ["PUSA bio-decomposer","IARI stubble decomposer, free to farmers","Scale across Delhi and NCR farms (open burning)"],
-  ["CAQM","Statutory NCR-wide airshed authority","The one lever for regional and airshed action (the givens)"],
-  ["DJB STP programme","Sewage capacity to 1,041 MGD by 2027","Add drain interception for quick Yamuna wins (stream 9)"],
-  ["NCAP + ECC funds","~₹7,600 cr spent + ~₹843 cr unspent","Redirect from dust and reaction to source fixes (D)"],
-  ["Informal recycler networks","Chintan / Safai Sena, >2,000 TPD","Formalise for instant, low-cost capacity (B)"],
-  ["Think-tank evidence base","CSE, TERI, CEEW, CREA, Urban Emissions","Ready analysis to target and measure action (C)"],
+  ["Green War Room + Green Delhi app","GNCTD 24x7 cell + citizen complaint app","Route segregation and open-burning complaints; act on hotspots (A)","Ready"],
+  ["Real-time source apportionment supersite","DPCC + IIT-Kanpur, ~₹12 cr","Use its output (currently under-used) to target sources (C)","Built but unused"],
+  ["CSTEP DMS","Open data platform for low-cost sensors","Backbone for a city-wide sensor mesh (C)","Built but unused"],
+  ["Sameer app + CPCB dashboards","National AQ data and citizen app","Open data and public engagement (C)","Ready"],
+  ["Biomining programme","MCD, ~30,000 TPD","Pair with front-end segregation so sites stop refilling (A, D)","Under-fed"],
+  ["CBWTFs + C&D plants","2 biomedical facilities + ~5,000 TPD C&D capacity","Route biomedical and C&D streams properly (streams 6, 7)","Under-fed"],
+  ["EPR portals","CPCB plastic, e-waste and battery EPR","Channel producer money into stream fixes (D)","Under-fed"],
+  ["PUSA bio-decomposer","IARI stubble decomposer, free to farmers","Scale across Delhi and NCR farms (open burning)","Ready"],
+  ["CAQM","Statutory NCR-wide airshed authority","The one lever for regional and airshed action (the givens)","Needs buy-in"],
+  ["DJB STP programme","Sewage capacity to 1,041 MGD by 2027","Add drain interception for quick Yamuna wins (stream 9)","Under-fed"],
+  ["NCAP + ECC funds","~₹7,600 cr spent + ~₹843 cr unspent","Redirect from dust and reaction to source fixes (D)","Idle money"],
+  ["Informal recycler networks","Chintan / Safai Sena, >2,000 TPD","Formalise for instant, low-cost capacity (B)","Ready"],
+  ["Think-tank evidence base","CSE, TERI, CEEW, CREA, Urban Emissions","Ready analysis to target and measure action (C)","Ready"],
 ];
-document.getElementById("leverage").innerHTML=`<tr><th>System / work already running</th><th>What it is</th><th>How to leverage</th></tr>`+LEVERAGE.map(r=>`<tr><td><b>${r[0]}</b></td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join("");
+const SCOL={"Ready":"#2e7d5b","Built but unused":"#2456a6","Under-fed":"#c9772f","Idle money":"#6b3fa0","Needs buy-in":"#1f7a7a","Fix first":"#a63a3a"};
+document.getElementById("leverage").innerHTML=`<tr><th>System / work already running</th><th>What it is</th><th>How to leverage</th><th>Status</th></tr>`+LEVERAGE.map(r=>`<tr><td><b>${r[0]}</b></td><td>${r[1]}</td><td>${r[2]}</td><td><span class="pill" style="background:${SCOL[r[3]]}22;color:${SCOL[r[3]]};white-space:nowrap">${r[3]}</span></td></tr>`).join("");
 const ABBR=[["AQI","Air Quality Index"],["BC","Black Carbon"],["BS-VI","Bharat Stage VI emission norm"],["CAAQMS","Continuous Ambient Air Quality Monitoring Station"],["CAQM","Commission for Air Quality Management (NCR)"],["C&D","Construction and Demolition waste"],["CBG","Compressed Bio-Gas"],["CBWTF","Common Bio-medical Waste Treatment Facility"],["CPCB","Central Pollution Control Board"],["CREA","Centre for Research on Energy and Clean Air"],["CSE","Centre for Science and Environment"],["CSTEP","Center for Study of Science, Technology and Policy"],["DDA","Delhi Development Authority"],["DJB","Delhi Jal Board"],["DMS","Data Management System (CSTEP)"],["DPCC","Delhi Pollution Control Committee"],["ECC","Environment Compensation Charge (green cess)"],["EPCA","Environment Pollution Control Authority (former)"],["EPR","Extended Producer Responsibility"],["GRAP","Graded Response Action Plan"],["IITM","Indian Institute of Tropical Meteorology"],["MCD","Municipal Corporation of Delhi"],["MLD","Million Litres per Day"],["MoEFCC","Ministry of Environment, Forest and Climate Change"],["MRF","Material Recovery Facility"],["MSW","Municipal Solid Waste"],["NAAQS","National Ambient Air Quality Standards"],["NAMP","National Air Monitoring Programme"],["NCAP","National Clean Air Programme"],["NCR","National Capital Region"],["NCT","National Capital Territory of Delhi"],["NDMC","New Delhi Municipal Council"],["NGT","National Green Tribunal"],["PM2.5","Particulate Matter under 2.5 microns"],["POC","Point of Contact"],["PUC","Pollution Under Control certificate"],["PUSA","IARI Pusa bio-decomposer"],["PWD","Public Works Department"],["RF","Rainmatter Foundation"],["RM","Rainmatter"],["RWA","Resident Welfare Association"],["SAFAR","System of Air Quality and Weather Forecasting And Research"],["STP","Sewage Treatment Plant"],["SUP","Single-Use Plastic"],["TPD","Tonnes Per Day"],["VGF","Viability Gap Funding"],["WtE","Waste-to-Energy"]];
 document.getElementById("abbr").innerHTML=ABBR.map(a=>`<div><b>${a[0]}</b> ${a[1]}</div>`).join("");
 
