@@ -99,6 +99,9 @@ svg text{font-family:'Helvetica Neue',Arial,sans-serif}
 .collapse[open]>summary::before{content:"\25BE "}
 .collapse>summary:hover{color:var(--navy2)}
 .callout{background:#e8f0f6;border-left:4px solid var(--navy);padding:10px 14px;border-radius:6px;font-size:14px;color:var(--navy2);font-weight:600;margin:0 0 12px}
+.srclist{columns:2;column-gap:28px;font-size:11.5px;margin:8px 0;padding-left:18px}
+.srclist li{break-inside:avoid;margin-bottom:4px}
+@media(max-width:820px){.srclist{columns:1}}
 </style>
 </head>
 <body>
@@ -594,7 +597,26 @@ document.querySelectorAll('#filters .chip').forEach(c=>c.onclick=()=>{
   document.querySelectorAll('#filters .chip').forEach(x=>x.classList.remove('active'));
   c.classList.add('active'); renderMap(c.dataset.m);
 });
-document.getElementById('foot').innerHTML=`Public draft, self-contained and offline. Companion notes: <a href="Delhi_Air_and_Waste_Situation_Note.html">Situation Note</a> &middot; <a href="Delhi_Waste_Air_Action_Map.html">Action Map</a> &middot; <a href="Delhi_Air_Waste_Systemic_Frame.html">Systemic Frame</a>. Figures sourced; contested ones flagged throughout. Built to iterate.`;
+document.getElementById('foot').innerHTML=`<b style="color:var(--navy);font-size:14px">Sources</b> <span style="color:var(--muted)">(key sources; contested figures are flagged in place)</span>
+<ol class="srclist">
+<li>CAQM / PIB, Delhi Jan to Nov air-quality series (<a href="https://www.pib.gov.in/PressReleseDetailm.aspx?PRID=2196623" target="_blank" rel="noopener">link</a>)</li>
+<li>CPCB, daily NCR air-quality bulletins (<a href="https://cpcb.nic.in/" target="_blank" rel="noopener">cpcb.nic.in</a>)</li>
+<li>CREA, Tracing the Hazy Air 2025 (NCAP progress) (<a href="https://energyandcleanair.org/publication/tracing-the-hazy-air-2025-progress-report-on-national-clean-air-programme-ncap/" target="_blank" rel="noopener">link</a>)</li>
+<li>CSE, annual and winter PM2.5 analyses; NCAP reform (<a href="https://www.cseindia.org/" target="_blank" rel="noopener">cseindia.org</a>)</li>
+<li>TERI-ARAI, Source Apportionment of PM2.5 and PM10 in Delhi NCR, 2018 (<a href="https://www.teriin.org/sites/default/files/2018-08/Report_SA_AQM-Delhi-NCR_0.pdf" target="_blank" rel="noopener">PDF</a>)</li>
+<li>Government unified source-apportionment report, 2024 (<a href="https://healthpolicy-watch.news/after-court-rebuke-government-releases-unified-report-identifying-sources-of-delhi-pollution/" target="_blank" rel="noopener">summary</a>)</li>
+<li>DPCC, Inventory of Major Point Air Pollution Sources in Delhi, 2023 (13 hotspots) (<a href="https://www.dpcc.delhigovt.nic.in/uploads/news/ae9ce818bf8b9e12ddb90177ce3108c7.pdf" target="_blank" rel="noopener">PDF</a>)</li>
+<li>IQAir, World Air Quality Report (Delhi rankings) (<a href="https://www.iqair.com/world-air-quality-report" target="_blank" rel="noopener">link</a>)</li>
+<li>Lancet Planetary Health, Delhi mortality, 2024 (<a href="https://www.thelancet.com/journals/lanplh/article/PIIS2542-5196(24)00114-1/fulltext" target="_blank" rel="noopener">link</a>)</li>
+<li>Science Advances, landfill methane from Delhi, 2022 (<a href="https://www.science.org/doi/10.1126/sciadv.abn9683" target="_blank" rel="noopener">link</a>)</li>
+<li>Supreme Court, M.C. Mehta vs Union of India, GRAP order 18 Nov 2024 (<a href="https://indiankanoon.org/doc/122095945/" target="_blank" rel="noopener">link</a>)</li>
+<li>NGT, landfill fines on the Delhi government (<a href="https://thewire.in/environment/ngt-fines-delhi-govt-rs-900-crore-for-undisposed-waste-in-ghazipur-bhalswa-okhla-landfills" target="_blank" rel="noopener">coverage</a>)</li>
+<li>CAG, performance audit on vehicular air pollution in Delhi, 2025 (<a href="https://www.tribuneindia.com/news/delhi/cag-report-flags-defects-in-monitoring-air-quality-data" target="_blank" rel="noopener">coverage</a>)</li>
+<li>Delhi Economic Survey 2025-26 (waste); Delhi Jal Board (sewage)</li>
+<li>Chintan / Safai Sena, informal-sector recycling (<a href="https://www.chintan-india.org/" target="_blank" rel="noopener">link</a>)</li>
+<li>Waste + Air ecosystem list (partner directory)</li>
+</ol>
+<div style="margin-top:4px">Public draft, self-contained and offline. Built to iterate.</div>`;
 </script>
 </body>
 </html>

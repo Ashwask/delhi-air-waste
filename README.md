@@ -10,7 +10,6 @@ An offline, single-file dashboard that treats Delhi's air pollution and municipa
 3. **Action & Partners** - a stream-by-stream action map, do-first moves, financials, how a task force could be set up, and an ecosystem directory of organisations.
 
 ## Notes
-- Companion pages: Situation Note, Action Map, Systemic Frame (linked from the dashboard footer).
 - Every figure is sourced; contested figures are flagged in place.
 - This is a **public draft**, built to iterate. Nothing here is a committed plan.
 - Self-contained: no CDN, no keys, works offline.
