@@ -92,6 +92,12 @@ svg text{font-family:'Helvetica Neue',Arial,sans-serif}
 .abbr div{break-inside:avoid;margin-bottom:5px}
 .abbr b{color:var(--navy)}
 @media(max-width:820px){.abbr{column-count:2}}
+.collapse{margin:22px 0 0;border-top:2px solid var(--line);padding-top:6px}
+.collapse>summary{font-size:19px;color:var(--navy);font-weight:700;cursor:pointer;list-style:none;padding:8px 0}
+.collapse>summary::-webkit-details-marker{display:none}
+.collapse>summary::before{content:"\25B8 ";color:var(--navy);margin-right:6px}
+.collapse[open]>summary::before{content:"\25BE "}
+.collapse>summary:hover{color:var(--navy2)}
 </style>
 </head>
 <body>
@@ -273,8 +279,9 @@ svg text{font-family:'Helvetica Neue',Arial,sans-serif}
   <p class="lead">Systems and work already running that a task force can plug into, rather than build from scratch.</p>
   <table id="leverage"></table>
 
-  <h2 class="sec">Partner directory</h2>
-  <p class="lead">Organisations across the Delhi air and waste ecosystem. 'Shortlist' = the Waste + Air startup list; 'Ecosystem' = others already working here. Filter by sector.</p>
+  <details class="collapse">
+    <summary>Partner directory: the full ecosystem (click to expand)</summary>
+    <p class="lead">Organisations across the Delhi air and waste ecosystem. 'Shortlist' = the Waste + Air startup list; 'Ecosystem' = others already working here. Filter by sector.</p>
   <div class="chips" id="pfilters">
     <span class="chip active" data-s="all">All</span>
     <span class="chip" data-s="Air">Air</span>
@@ -284,6 +291,7 @@ svg text{font-family:'Helvetica Neue',Arial,sans-serif}
     <span class="chip" data-s="VC">VC</span>
   </div>
   <table id="pdir"></table>
+  </details>
 
   <h2 class="sec">Abbreviations</h2>
   <div class="abbr" id="abbr"></div>
