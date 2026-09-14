@@ -109,7 +109,7 @@ svg text{font-family:'Helvetica Neue',Arial,sans-serif}
 <body>
 <header>
   <h1>Delhi Air + Waste: A Systemic Landscape</h1>
-  <p>One interlocked system, not two problems. Built for the RF + RM task force to see the crisis, the leverage, and the partners in one place. All figures are sourced and honesty-flagged where contested. Draft v0.2, 14 Sep 2026 (adds regional-air levers and airshed cost-curve evidence).</p>
+  <p>One interlocked system, not two problems. Built for the RF + RM task force to see the crisis, the leverage, and the partners in one place. All figures are sourced and honesty-flagged where contested. Draft v0.3, 14 Sep 2026 (adds regional-air levers, airshed cost-curve evidence, per-city and regional-waste breadth, and a costed measurement layer).</p>
 </header>
 <nav class="tabs">
   <button class="tab active" data-p="crisis">1 &nbsp;The Crisis</button>
@@ -138,6 +138,13 @@ svg text{font-family:'Helvetica Neue',Arial,sans-serif}
     </div>
   </div>
 
+  <h2 class="sec">The airshed, city by city</h2>
+  <div class="box">
+    <h3>2025 annual PM2.5 across the NCR (ug/m3)</h3>
+    <div id="ncrbar"></div>
+    <div class="note">12 of 14 NCR cities with adequate data exceed the national standard of 40. Delhi is the worst but far from alone: this is a regional airshed, not one city. Every bar shown is above the standard of 40. Source: CPCB 2025 city bulletins.</div>
+  </div>
+
   <h2 class="sec">The waste ledger</h2>
   <div class="grid2">
     <div class="box">
@@ -151,6 +158,8 @@ svg text{font-family:'Helvetica Neue',Arial,sans-serif}
       <div class="note">~11.5 million tonnes of legacy waste remain despite record biomining. Ghazipur grew from 65 m to 67 m even while being mined. The fire-to-air link is measurable: a single 2022 Bhalswa fire lifted citywide PM2.5 by ~45 to 55% for about three weeks.</div>
     </div>
   </div>
+
+  <div class="flag"><b>The waste crisis is regional too:</b> across the airshed Punjab landfills ~56% of collected waste (the highest share), Haryana treats only about half, and recovery infrastructure is largely on paper. A UP audit found 45 of 735 units working; ~1,200 facilities are listed across the five states against roughly 375 standard 50-tonne units actually needed. Fixing Delhi alone will not clear the airshed. Source: CPCB and state waste-audit compilations.</div>
 
   <h2 class="sec">Where the crisis concentrates</h2>
   <div class="grid2">
@@ -277,6 +286,8 @@ svg text{font-family:'Helvetica Neue',Arial,sans-serif}
     <div class="box"><h3>What each fix needs, and who funds it</h3><table id="fixfin"></table></div>
   </div>
 
+  <div class="callout">The whole measurement layer, an inventory younger than a decade, winter supersites that separate local from imported particles, a calibrated sensor mesh on an open data broker, stack data from incinerators and large plants, plus a causal evaluation of GRAP and an ambient evaluation of a fuel pilot, costs under ₹100 cr: less than one winter of anti-smog guns. It is the cheapest line in the plan and the one that comes first (fix C).</div>
+
   <h2 class="sec">What good looks like: precedent and the cost curve</h2>
   <p class="lead">The prevention-first, redirect-not-spend argument is not theoretical. A comparable megacity did it, and the economics favour coordinated airshed action over fragmented, hotspot-only spending.</p>
   <div class="grid2">
@@ -351,12 +362,13 @@ const D = {
   },
   waste:[["Generated",11850,"#a63a3a"],["Processing capacity",8173,"#c9772f"],["Actually processed",7611,"#2e7d5b"]],
   landfill:[["Ghazipur",68.6,"#a63a3a"],["Bhalswa",30.18,"#c9772f"],["Okhla",16.4,"#6b3fa0"]],
+  ncr:[["Delhi",97,"#a63a3a"],["Ghaziabad",93,"#a63a3a"],["Noida",83,"#c9772f"],["Gurugram",77,"#c9772f"],["Gr. Noida",77,"#c9772f"],["Bhiwadi",74,"#c9772f"],["Meerut",63,"#c9772f"]],
   effect:[
     ["NCAP (clean-air funds)","Only 41 of 97 cities met the initial PM10 target; ~64 to 67% of spend went to road dust, ~1% each to industry and domestic fuel","Misdirected"],
-    ["GRAP (emergency response)","Peer-reviewed: only limited PM cuts during enforcement; big drops came later with favourable weather","Reactive, weak"],
+    ["GRAP (emergency response)","Invoked 9 times last winter (Stage IV in force 14 days, Stage III 41) across only 55 of 212 days that breached the daily limit; peer-reviewed evidence shows only limited PM cuts during enforcement, and its causal effect has never been formally evaluated","Reactive, weak"],
     ["Smog towers","Connaught Place tower (₹19.42 cr) had zero recorded operating spend for two years; non-functional. DPCC: 40,000+ needed for a city effect","Failed"],
     ["Biomining (landfills)","Record 74 lakh MT in FY25-26, but sites refill from the daily 4,200 TPD gap; ~11.5 MT still remain","Running to stand still"],
-    ["WtE plants","Documented dioxin/furan violations (Okhla 890% over limit); burning wet mixed waste is inefficient","Polluting"],
+    ["WtE plants","Documented dioxin/furan violations (Okhla 890% over limit); CPCB's own March 2025 test found Bawana dioxins ~6x the limit and a cadmium exceedance at Ghazipur. Continuous stack monitoring was ordered Aug 2025 but no data has been published. Burning wet mixed waste runs inefficiently","Polluting"],
     ["Sewage (Delhi Jal Board)","Largest treatment gap in India (~2,562 MLD); Najafgarh drain alone = ~70% of the Yamuna's load","Under-capacity"],
   ],
   ladder:[
@@ -447,6 +459,7 @@ lineChart(document.getElementById('trend'),D.trendYears,D.trendPM);
 stackBar(document.getElementById('apportion'),D.apportion);
 barChart(document.getElementById('wastebar'),D.waste," ",13000);
 barChart(document.getElementById('landfill'),D.landfill," lakh MT",75);
+barChart(document.getElementById('ncrbar'),D.ncr," ",110);
 
 document.getElementById('effect').innerHTML=`<tr><th>Measure</th><th>What the evidence shows</th><th>Verdict</th></tr>`+
   D.effect.map(r=>`<tr><td><b>${r[0]}</b></td><td>${r[1]}</td><td><span class="pill">${r[2]}</span></td></tr>`).join("");
@@ -477,7 +490,7 @@ const HOT={
     {n:"Seelampur",c:"ewaste",lon:77.268,lat:28.668,d:"India's e-waste hub; ~57% of Delhi's informal units. Open burning of cables/PCBs to recover copper, acid baths; ~12% PPE use."},
     {n:"Connaught Place",c:"air",lon:77.219,lat:28.632,d:"The Rs 19.42 cr smog tower: zero recorded operating spend for two years (RTI, 2025); now non-functional."},
     {n:"Najafgarh drain",c:"water",lon:77.060,lat:28.610,d:"Carries ~600 MGD untreated sewage and ~70% of the Yamuna's BOD load. Delhi contributes ~76% of the river's pollution."},
-    {n:"Narela-Bawana WtE",c:"wte",lon:77.045,lat:28.825,d:"~1,300 TPD / 24 MW; +3,000 TPD planned by Dec 2027. Burning wet mixed waste runs inefficiently."},
+    {n:"Narela-Bawana WtE",c:"wte",lon:77.045,lat:28.825,d:"~1,300 TPD / 24 MW; +3,000 TPD planned by Dec 2027. CPCB March 2025 test: dioxins ~6x the limit. Burning wet mixed waste runs inefficiently."},
     {n:"Okhla WtE",c:"wte",lon:77.283,lat:28.512,d:"~1,950 TPD / 23 MW (Jindal/TOWMCL). Measured dioxins/furans 890% over limit, HCl 296% over (reported to NGT)."},
     {n:"Anand Vihar",c:"dpcc",lon:77.3159,lat:28.6469,d:"DPCC hotspot. ISBT plus interstate bus and truck traffic, road dust. Delhi's most polluted station; a smog tower operates here."},
     {n:"Ashok Vihar",c:"dpcc",lon:77.1770,lat:28.6900,d:"DPCC hotspot. Traffic corridors, road dust, local commercial activity."},
@@ -644,6 +657,9 @@ document.getElementById('foot').innerHTML=`<details class="collapse"><summary>So
 <li>Geostationary vs polar satellite stubble-timing analysis (post-3pm fire shift; ~37% burnt-area decline) (<a href="https://earthobservatory.nasa.gov/" target="_blank" rel="noopener">NASA Earth Observatory</a>)</li>
 <li>Bhalswa landfill fire 2022, citywide PM2.5 impact (~45 to 55% for three weeks)</li>
 <li>IIT Delhi source-apportionment and lever modelling, npj Clean Air, 2026; NFHS-5 (household solid-fuel use)</li>
+<li>CPCB, 2025 city air-quality bulletins (per-city NCR PM2.5); continuous stack-monitoring order, Aug 2025</li>
+<li>CPCB, incinerator stack test, March 2025 (Bawana dioxins, Ghazipur cadmium)</li>
+<li>CAQM / GRAP invocation records, winter 2025-26; state waste-audit compilations (Punjab, Haryana, UP recovery units)</li>
 <li>Delhi Economic Survey 2025-26 (waste); Delhi Jal Board (sewage)</li>
 <li>Chintan / Safai Sena, informal-sector recycling (<a href="https://www.chintan-india.org/" target="_blank" rel="noopener">link</a>)</li>
 <li>Waste + Air ecosystem list (partner directory)</li>
