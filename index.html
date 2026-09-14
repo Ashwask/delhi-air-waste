@@ -109,7 +109,7 @@ svg text{font-family:'Helvetica Neue',Arial,sans-serif}
 <body>
 <header>
   <h1>Delhi Air + Waste: A Systemic Landscape</h1>
-  <p>One interlocked system, not two problems. Built for the RF + RM task force to see the crisis, the leverage, and the partners in one place. All figures are sourced and honesty-flagged where contested. Draft v0.6, 14 Sep 2026 (adds the twelve-action "action government" plan: owner, deadline, budget and the innovator/research/grassroots/think-tank role for each).</p>
+  <p>One interlocked system, not two problems. Built for the RF + RM task force to see the crisis, the leverage, and the partners in one place. All figures are sourced and honesty-flagged where contested. Draft v0.7, 14 Sep 2026 (adds a sourced "hardware, and who owns it" inventory: coal plants by owner, the four WtE operators, the recovery-unit gap, and the reference vs low-cost monitor layer).</p>
 </header>
 <nav class="tabs">
   <button class="tab active" data-p="crisis">1 &nbsp;The Crisis</button>
@@ -179,6 +179,33 @@ svg text{font-family:'Helvetica Neue',Arial,sans-serif}
       <h3 id="hotname">The hotspots</h3>
       <div id="hotdetail" style="font-size:13.5px;color:var(--ink);min-height:70px">Click any marker on the map to see what it is and why it matters. The same map carries the air story (13 official DPCC hotspots, smog towers) and the waste story (the three landfills, Seelampur e-waste, Okhla WtE, the Najafgarh drain), because they share the same city.</div>
       <div id="hotlegend" style="margin-top:14px"></div>
+    </div>
+  </div>
+
+  <h2 class="sec">The hardware around Delhi, and who owns it</h2>
+  <p class="lead">The physical stock the actions above have to move: the coal plants ringing the airshed, the incinerators inside the city, the recovery units that never got built, and the monitors that would tell us if any of it worked. Ownership matters because the owner is the accountable party. Numbers are sourced and flagged where a clean count does not exist.</p>
+  <div class="grid2">
+    <div class="box">
+      <h3>Coal thermal plants within 300 km (CAQM radius)</h3>
+      <table id="tpp"></table>
+      <div class="note">~11 to 12 tracked coal plants; up to ~30 in the wider airshed (no verified itemised list). <b>7 of 11 are exempt</b> from the tighter sulphur rule, six of them upwind. Delhi's own coal plants are all shut (Rajghat 2015, IP 2009, Badarpur 2018). Source: CAQM 300 km list / Newslaundry FGD analysis 2025.</div>
+    </div>
+    <div class="box">
+      <h3>Waste-to-energy plants (Delhi)</h3>
+      <table id="wte"></table>
+      <div class="note">4 operational, ~84 MW combined. Bandhwari (Gurugram-Faridabad) was contracted but <b>never built</b> (Ecogreen terminated 2024). Source: operator filings; ThePrint / Newslaundry.</div>
+    </div>
+  </div>
+  <div class="grid2">
+    <div class="box">
+      <h3>Recovery units (MRFs): on paper vs working</h3>
+      <table id="mrf"></table>
+      <div class="note">Delhi's own count swings 1,442 (2021) to 819 (2022) to 638 (2024) and conflates dhalaos with true MRFs. The five-state "~1,200 on paper vs ~375 units needed" figure is widely cited but <b>could not be traced to a primary source</b>: treat as unverified. Cleanest proof is the CAG UP audit. Source: CAG UP SWM audit 2025.</div>
+    </div>
+    <div class="box">
+      <h3>Air monitors: reference vs low-cost</h3>
+      <table id="mon"></table>
+      <div class="note">The large IIT-Kanpur ATMAN network (~1,300 nodes) is in rural UP and Bihar, <b>not the NCR</b>. There is no authoritative NCR low-cost-sensor total; deployments are a scatter of pilots. Source: PIB CAAQMS 2025; CSTEP; IIT-K.</div>
     </div>
   </div>
 
@@ -547,6 +574,31 @@ barChart(document.getElementById('ncrbar'),D.ncr," ",110);
 
 document.getElementById('effect').innerHTML=`<tr><th>Measure</th><th>What the evidence shows</th><th>Verdict</th></tr>`+
   D.effect.map(r=>`<tr><td><b>${r[0]}</b></td><td>${r[1]}</td><td><span class="pill">${r[2]}</span></td></tr>`).join("");
+const TPP=[
+  ["Central PSU","~3","NTPC Dadri, THDC Khurja, NTPC's share of Jhajjar-IG (APCPL)"],
+  ["State genco","~6","HPGCL: Panipat, Hisar, Yamunanagar; UPRVUNL: Harduaganj; PSPCL: Ropar, Lehra Mohabbat"],
+  ["Private","~3","Apraava/CLP (Jhajjar-MG), Vedanta (Talwandi Sabo), L&T (Nabha/Rajpura)"],
+];
+document.getElementById('tpp').innerHTML=`<tr><th>Owner</th><th>Plants</th><th>Examples</th></tr>`+TPP.map(r=>`<tr><td><b>${r[0]}</b></td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join("");
+const WTE=[
+  ["Okhla","~1,950 TPD / 23 MW","Jindal (TOWMCL)"],
+  ["Ghazipur","~1,300 TPD / 12 MW","EDWPCL (IL&FS / GMR lineage)"],
+  ["Narela-Bawana","~2,000 TPD / 24 MW","Ramky / RE Sustainability (DMSWSL)"],
+  ["Tehkhand","~1,800-2,400 TPD / 25 MW","Jindal (TWEPL)"],
+];
+document.getElementById('wte').innerHTML=`<tr><th>Plant</th><th>Capacity</th><th>Operator</th></tr>`+WTE.map(r=>`<tr><td><b>${r[0]}</b></td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join("");
+const MRF=[
+  ["Uttar Pradesh","735 sanctioned","45 working (CAG audit)"],
+  ["Punjab","56","43 working"],
+  ["Delhi","1,442 to 638*","unstable; conflates dhalaos"],
+];
+document.getElementById('mrf').innerHTML=`<tr><th>Where</th><th>On paper</th><th>Working</th></tr>`+MRF.map(r=>`<tr><td><b>${r[0]}</b></td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join("");
+const MON=[
+  ["Reference CAAQMS (NCR)","84","40 Delhi, 22 Haryana, 18 UP, 4 Rajasthan"],
+  ["Low-cost pilots (Delhi)","~70+ (scattered)","CSTEP ~28, IIT-K ~20, DPCC ~24; no registry"],
+  ["Open broker","oaq.notf.in","routes monitors, open data (NOTF)"],
+];
+document.getElementById('mon').innerHTML=`<tr><th>Layer</th><th>Count</th><th>Note</th></tr>`+MON.map(r=>`<tr><td><b>${r[0]}</b></td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join("");
 
 document.getElementById('movecards').innerHTML=D.moves.map((m,i)=>`
   <div class="move ${m.cls}"><div class="h"><span class="mtag m${m.L}">${m.L}</span><b>${m.title}</b><span class="rank">#${i+1}</span></div>
@@ -786,6 +838,10 @@ document.getElementById('foot').innerHTML=`<details class="collapse"><summary>So
 <li>Waste + Air ecosystem list (partner directory)</li>
 <li>Upwind: A Data Story on NCR Air Quality (<a href="https://upwind.surge.sh/" target="_blank" rel="noopener">upwind.surge.sh</a>) (airshed levers, the six programmes, regulatory sandbox, cost curve, per-city and regional-waste data)</li>
 <li>The Action Government: twelve actions for the NCR's air before winter, 14 Sep 2026 (owner, budget and ecosystem-role plan; act numbers trace to Upwind)</li>
+<li>CAQM thermal-plant list within 300 km + FGD/co-firing directions; Newslaundry, "Delhi shut its thermal plants but chokes from neighbouring ones," 7 Oct 2025 (plant ownership + 7-of-11 exempt)</li>
+<li>WtE operators: TOWMCL (Okhla), EDWPCL (Ghazipur), Delhi MSW Solutions / RE Sustainability (Narela-Bawana), TWEPL (Tehkhand); ThePrint / Newslaundry (Bandhwari)</li>
+<li>CAG Report No. 1 of 2025, UP Solid Waste Management (45 of 735 MRFs functional; 15 of 32 processing plants)</li>
+<li>PIB, CAAQMS network in Delhi-NCR (84 stations), 8 May 2025; CSTEP low-cost sensor deployment; IIT-Kanpur ATMAN (UP/Bihar, not NCR)</li>
 </ol></details>
 <div style="margin-top:8px">Public draft, self-contained and offline. Built to iterate.</div>`;
 </script>
