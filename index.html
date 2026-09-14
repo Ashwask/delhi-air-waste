@@ -109,7 +109,7 @@ svg text{font-family:'Helvetica Neue',Arial,sans-serif}
 <body>
 <header>
   <h1>Delhi Air + Waste: A Systemic Landscape</h1>
-  <p>One interlocked system, not two problems. Built for the RF + RM task force to see the crisis, the leverage, and the partners in one place. All figures are sourced and honesty-flagged where contested. Draft v0.3, 14 Sep 2026 (adds regional-air levers, airshed cost-curve evidence, per-city and regional-waste breadth, and a costed measurement layer).</p>
+  <p>One interlocked system, not two problems. Built for the RF + RM task force to see the crisis, the leverage, and the partners in one place. All figures are sourced and honesty-flagged where contested. Draft v0.4, 14 Sep 2026 (adds a public monthly-page artefact, health-burden metrics, secondary-aerosol chemistry, Ujjwala detail, and an evidence-ranked regional-lever table).</p>
 </header>
 <nav class="tabs">
   <button class="tab active" data-p="crisis">1 &nbsp;The Crisis</button>
@@ -133,7 +133,7 @@ svg text{font-family:'Helvetica Neue',Arial,sans-serif}
     <div class="box">
       <h3>Where the pollution comes from</h3>
       <div id="apportion"></div>
-      <div class="note">Within Delhi city, transport leads; across the wider NCR, residential + industry + farm-burning dominate. ~65 to 70% of winter PM2.5 is regional (Haryana/Punjab/UP). Combustion, not dust, is the winter driver (four studies put it at ~83 to 97% of winter PM2.5). Sources: TERI-ARAI (2018) and the government's unified source-apportionment report, 2024 (<a href="https://healthpolicy-watch.news/after-court-rebuke-government-releases-unified-report-identifying-sources-of-delhi-pollution/" target="_blank" rel="noopener">summary</a>).</div>
+      <div class="note">Within Delhi city, transport leads; across the wider NCR, residential + industry + farm-burning dominate. ~65 to 70% of winter PM2.5 is regional (Haryana/Punjab/UP). Combustion, not dust, is the winter driver (four studies put it at ~83 to 97% of winter PM2.5). Much of it is secondary aerosol: ~83% forms in the air from sulfur, nitrogen and ammonia precursors emitted more than 30 km away, which is why local-only action falls short. Sources: TERI-ARAI (2018) and the government's unified source-apportionment report, 2024 (<a href="https://healthpolicy-watch.news/after-court-rebuke-government-releases-unified-report-identifying-sources-of-delhi-pollution/" target="_blank" rel="noopener">summary</a>).</div>
       <div class="flag" style="margin-top:10px"><b>Stubble counts are misleading:</b> polar-satellite fire counts fell ~94% from 2020 to 2025, but that is largely an artifact. Fires shifted to after 3pm and evade the afternoon overpass; geostationary data show &gt;90% of large fires now lit post-3pm (vs 3% in 2021), and burnt area fell only ~37%. Stubble is ~14 to 34% of Delhi PM2.5 in burning weeks but under ~5% outside them.</div>
     </div>
   </div>
@@ -261,6 +261,10 @@ svg text{font-family:'Helvetica Neue',Arial,sans-serif}
 
   <div class="flag"><b>One regional lever is not a given:</b> we treat winter meteorology and the airshed as constants, but household solid fuel across the airshed is the largest single lever with no programme owning it. A 50% shift is modelled at ~30% of Delhi's winter PM2.5 (with a regional crop-fire ban) or ~13% NCR-only. It has never had its ambient effect measured in India, so the first move is a measured pilot, not another subsidy push.</div>
 
+  <h2 class="sec">The regional air levers, ranked by evidence</h2>
+  <p class="lead">The four fixes above tackle Delhi's waste and local air. These are the regional-airshed levers, ranked by how much they could move winter PM2.5 against how proven the delivery is. The honest reading: the biggest levers have the thinnest delivery evidence, so each needs a measured pilot before scale.</p>
+  <table id="levers"></table>
+
   <div class="takeaway">
     <h3>What this means for government</h3>
     <ul>
@@ -320,6 +324,31 @@ svg text{font-family:'Helvetica Neue',Arial,sans-serif}
     <b style="color:var(--navy)">How it runs:</b> a small steering group plus one working group per lever, meeting monthly, with this dashboard as the shared tracker. Pilot first, then scale what works.
   </div>
 
+  <h2 class="sec">The public artefact: one page, one number per district</h2>
+  <p class="lead">The internal tracker is for the room. The public needs one thing everyone can read. Alongside it, publish a single page each month: one PM2.5 number per district, the sector emission budgets beneath it, and spend against those budgets. It is the one artefact a farmer, a kiln owner, a chief secretary and a resident can all read, and it replaces the winter-only GRAP episode index with a standing annual target.</p>
+  <div class="grid2">
+    <div class="box">
+      <h3>Illustrative monthly page (layout, not live data)</h3>
+      <table>
+        <tr><th>District</th><th>This month</th><th>Annual target</th><th>Largest sector budget</th><th>On track?</th></tr>
+        <tr><td><b>Delhi (Central)</b></td><td>97</td><td>75</td><td>Transport</td><td><span class="pill" style="background:#a63a3a22;color:#a63a3a">Off</span></td></tr>
+        <tr><td><b>Ghaziabad (UP)</b></td><td>93</td><td>75</td><td>Industry</td><td><span class="pill" style="background:#a63a3a22;color:#a63a3a">Off</span></td></tr>
+        <tr><td><b>Rohtak (HR)</b></td><td>72</td><td>60</td><td>Household fuel</td><td><span class="pill" style="background:#c9772f22;color:#c9772f">Near</span></td></tr>
+        <tr><td><b>Sangrur (PB)</b></td><td>68</td><td>55</td><td>Crop burning</td><td><span class="pill" style="background:#a63a3a22;color:#a63a3a">Off</span></td></tr>
+      </table>
+      <div class="note">Schematic only, to show the format. Real numbers come from re-sited monitors and a current inventory (fix C).</div>
+    </div>
+    <div class="box">
+      <h3>Three principles that keep it honest</h3>
+      <ul style="margin:0;padding-left:18px;font-size:13.5px">
+        <li style="margin-bottom:7px"><b>Subsidiarity:</b> write the rule at the level that can hold it. District-level targets for fires, kilns and kitchens, not one national average that no one owns.</li>
+        <li style="margin-bottom:7px"><b>Place-based ownership:</b> the district owns its page. Brokers and funders support it but do not own it, which prevents capture.</li>
+        <li style="margin-bottom:0"><b>Transparency:</b> published monthly, same format every time, so a missed target is visible to everyone the same day.</li>
+      </ul>
+      <div class="note">This is the accountability layer over the task force: the task force runs the levers, the page shows whether they are working.</div>
+    </div>
+  </div>
+
   <h2 class="sec">What we can leverage (already exists)</h2>
   <p class="lead">Systems and work already running that a task force can plug into, rather than build from scratch.</p>
   <div class="callout">Most of what is needed already exists or is already paid for. The job is to redirect idle money and switch on assets that are built but unused, not to build new things.</div>
@@ -360,6 +389,7 @@ const D = {
     {big:"4,200", lab:"tonnes dumped unprocessed every single day", c:"bad"},
     {big:"~65-70%", lab:"of winter PM2.5 blows in from the regional airshed", c:"warn"},
     {big:"~12,000", lab:"Delhi deaths/yr attributed to PM2.5 (Lancet 2024)", c:"bad"},
+    {big:"8.2 yrs", lab:"life expectancy lost per Delhi resident (AQLI; ~0.7 in Tokyo); ~68,000 acute respiratory ER visits/yr", c:"bad"},
   ],
   trendYears:["2018","2019","2020","2021","2022","2023","2024","2025"],
   trendPM:[103,99,85,95,90,90,98,85],
@@ -400,7 +430,7 @@ const D = {
     ["Domestic hazardous (<1%)","Mixed in; no routing","Collection points + battery EPR","Karo Sambhav; DPCC","BD"],
     ["Liquid / sewage (2,562 MLD gap)","STPs non-compliant; Najafgarh = 70% Yamuna BOD","Intercept biggest drains + STP compliance","Delhi Jal Board","D"],
     ["Legacy landfills (~11.5 MT)","Refill as mined","Sustain biomining + close the daily-dump tap","Saroja Earth, Carbon Masters; MCD","AD"],
-    ["Household solid fuel (regional air)","~Half of rural Haryana and ~two-thirds of rural UP still cook on solid fuel; Ujjwala cylinders under-refilled (~4 to 5/yr vs 7 to 8 needed for exclusive use); no programme owns it and its ambient effect has never been measured in India","LPG refill top-up pilot with before/after ambient measurement built in (largest lever with no programme: ~30% of winter PM2.5 with a regional crop-fire ban, ~13% NCR-only)","CEEW, iFOREST; CAQM, oil-marketing companies","CD"],
+    ["Household solid fuel (regional air)","~Half of rural Haryana and ~two-thirds of rural UP still cook on solid fuel. Ujjwala reached ~10.5 cr homes, but ~23% of surveyed households use LPG only; most refill ~4 to 5 cylinders/yr against the ~7 to 8 needed for exclusive use. No programme owns it and its ambient effect has never been measured in India","LPG refill top-up pilot with before/after ambient measurement built in (largest lever with no programme: ~30% of winter PM2.5 with a regional crop-fire ban, ~13% NCR-only)","CEEW, iFOREST; CAQM, oil-marketing companies","CD"],
     ["Diesel / black carbon (air)","Largest local PM2.5; ~80% BC from diesel","EV/CNG freight + PUC integrity fix","Aurassure, Karban, Greengine; CAQM","C"],
     ["Open burning (air)","Waste + leaves burned in the open","Enforcement + the segregation fixes above","Saroja Earth; MCD, DPCC","A"],
     ["Monitoring integrity (air)","CAG: stations mis-sited, AQI unreliable","Re-site stations, open data, sensor mesh","Aurassure, CSTEP, IIT-Delhi, CEEW","C"],
@@ -583,6 +613,14 @@ document.getElementById('govtable').innerHTML=`<tr><th>Body</th><th>Type</th><th
 document.getElementById('timeline').innerHTML=`<tr><th>Deadline</th><th>Commitment</th><th>Status</th></tr>`+TL.map(r=>`<tr><td><b>${r[0]}</b></td><td>${r[1]}</td><td><span class="pill" style="background:${STC[r[3]]}22;color:${STC[r[3]]}">${r[2]}</span></td></tr>`).join("");
 document.getElementById('sysgood').innerHTML=SYSGOOD.map(x=>`<li>${x}</li>`).join("");
 document.getElementById('sysbad').innerHTML=SYSBAD.map(x=>`<li>${x}</li>`).join("");
+const LEVERS=[
+  ["Household fuel (50% shift)","~30% of winter PM2.5","Never measured in India; the subsidy fades on refill","Pilot with measurement first"],
+  ["Crop-burning compliance","~24 to 36% in burning weeks","One Punjab RCT with upfront payment","Regional, episodic"],
+  ["Industrial / kiln standards","Moderate","Rules exist but are not enforced","Enforcement priority"],
+  ["Waste remediation","Moderate","Never evaluated for its air effect","Measurement-based pilot"],
+  ["Remote-sensing enforcement","Moderate","Works technically; not adopted","Implementation gap"],
+];
+document.getElementById('levers').innerHTML=`<tr><th>Regional lever</th><th>Size (winter PM2.5)</th><th>Delivery evidence</th><th>Status</th></tr>`+LEVERS.map(r=>`<tr><td><b>${r[0]}</b></td><td>${r[1]}</td><td>${r[2]}</td><td><span class="pill">${r[3]}</span></td></tr>`).join("");
 
 /* ---------- FINANCIALS + TASK FORCE ---------- */
 const MONEY=[
@@ -667,6 +705,8 @@ document.getElementById('foot').innerHTML=`<details class="collapse"><summary>So
 <li>CPCB, 2025 city air-quality bulletins (per-city NCR PM2.5); continuous stack-monitoring order, Aug 2025</li>
 <li>CPCB, incinerator stack test, March 2025 (Bawana dioxins, Ghazipur cadmium)</li>
 <li>CAQM / GRAP invocation records, winter 2025-26; state waste-audit compilations (Punjab, Haryana, UP recovery units)</li>
+<li>AQLI (Air Quality Life Index), University of Chicago (life-expectancy loss); hospital respiratory-admission analyses (ER-visit burden)</li>
+<li>NFHS-5 and Ujjwala (PMUY) coverage and refill data; IIT Delhi / TERI-ARAI lever modelling</li>
 <li>Delhi Economic Survey 2025-26 (waste); Delhi Jal Board (sewage)</li>
 <li>Chintan / Safai Sena, informal-sector recycling (<a href="https://www.chintan-india.org/" target="_blank" rel="noopener">link</a>)</li>
 <li>Waste + Air ecosystem list (partner directory)</li>
