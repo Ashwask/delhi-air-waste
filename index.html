@@ -109,7 +109,7 @@ svg text{font-family:'Helvetica Neue',Arial,sans-serif}
 <body>
 <header>
   <h1>Delhi Air + Waste: A Systemic Landscape</h1>
-  <p>One interlocked system, not two problems: the crisis, the leverage, the regional sandbox and the twelve pre-winter actions in one place. All figures sourced, honesty-flagged where contested. Draft v0.8, 14 Sep 2026.</p>
+  <p>Delhi's dirty air and its waste pile are one problem, not two. This page shows the crisis, what can fix it, and twelve things to do before winter. Every number has a source; shaky ones are flagged. Draft v0.8, 14 Sep 2026.</p>
 </header>
 <nav class="tabs">
   <button class="tab active" data-p="crisis">1 &nbsp;The Crisis</button>
@@ -133,57 +133,57 @@ svg text{font-family:'Helvetica Neue',Arial,sans-serif}
     <div class="box">
       <h3>Where the pollution comes from</h3>
       <div id="apportion"></div>
-      <div class="note">Within Delhi, transport leads; across the NCR, homes, industry and farm-burning dominate. ~65 to 70% of winter PM2.5 is regional. Combustion, not dust, drives winter (~83 to 97%), and ~83% is secondary aerosol formed from precursors >30 km away, so local-only action falls short. Sources: TERI-ARAI 2018; unified apportionment 2024 (<a href="https://healthpolicy-watch.news/after-court-rebuke-government-releases-unified-report-identifying-sources-of-delhi-pollution/" target="_blank" rel="noopener">summary</a>).</div>
-      <div class="flag" style="margin-top:10px"><b>Stubble counts mislead:</b> satellite fire counts fell ~94% (2020 to 2025), but that is timing, not reality. Fires moved past 3pm and evade the afternoon overpass; burnt area fell only ~37%. Stubble is ~14 to 34% of Delhi PM2.5 in burning weeks, under ~5% outside them.</div>
+      <div class="note">Inside Delhi, traffic is the biggest source. Across the wider region, it is homes, factories and farm fires. About two-thirds of winter pollution blows in from outside Delhi, and most of it is burning, not dust, so Delhi cannot fix this alone. Sources: TERI-ARAI 2018; unified report 2024 (<a href="https://healthpolicy-watch.news/after-court-rebuke-government-releases-unified-report-identifying-sources-of-delhi-pollution/" target="_blank" rel="noopener">summary</a>).</div>
+      <div class="flag" style="margin-top:10px"><b>Farm-fire counts mislead:</b> satellite counts dropped 94% since 2020, but only because farmers now burn after 3pm, once the satellite has passed. The burnt area fell just 37%. Stubble is 14 to 34% of Delhi's air in burning weeks, under 5% the rest of the year.</div>
     </div>
   </div>
 
-  <h2 class="sec">The airshed, city by city</h2>
+  <h2 class="sec">The wider region, city by city</h2>
   <div class="grid2">
     <div class="box">
-      <h3>2025 annual PM2.5 across the NCR (ug/m3)</h3>
+      <h3>2025 average pollution across the region (PM2.5, ug/m3)</h3>
       <div id="ncrbar"></div>
       <div class="note">Every bar shown is above the national standard of 40. Source: CPCB 2025 city bulletins.</div>
     </div>
     <div class="box">
       <h3>Why this matters</h3>
-      <p style="font-size:13.5px;margin:0">12 of 14 NCR cities exceed the standard. Delhi is worst but not alone, and ~65 to 70% of its winter PM2.5 blows in from the wider NCR. A fix scoped to Delhi's boundary cannot reach that, so the levers and the target have to be shared across states.</p>
+      <p style="font-size:13.5px;margin:0">12 of 14 nearby cities breach the standard. Delhi is the worst, but not alone, and two-thirds of its winter pollution comes from outside. A Delhi-only fix cannot reach that, so the states have to act together on one shared target.</p>
     </div>
   </div>
 
   <h2 class="sec">The waste ledger</h2>
   <div class="grid2">
     <div class="box">
-      <h3>Generated vs processed (TPD)</h3>
+      <h3>Waste made vs handled (tonnes/day)</h3>
       <div id="wastebar"></div>
-      <div class="note">~4,200 tonnes per day dumped unprocessed. Source segregation stuck at ~55% (self-reports run higher; treat with caution).</div>
+      <div class="note">About 4,200 tonnes are dumped unprocessed every day. Only ~55% of waste is separated at source (official figures claim more; treat with caution).</div>
     </div>
     <div class="box">
       <h3>The three landfills (lakh tonnes remaining, Feb 2026)</h3>
       <div id="landfill"></div>
-      <div class="note">~11.5 Mt of legacy waste remain despite record biomining; Ghazipur grew 65 m to 67 m while being mined. The fire-to-air link is real: the 2022 Bhalswa fire lifted citywide PM2.5 ~45 to 55% for three weeks.</div>
+      <div class="note">About 11.5 million tonnes of old waste still sit in the three landfills despite record clearing. Ghazipur even grew taller while being mined. The link to air is real: the 2022 Bhalswa fire pushed city-wide pollution up 45 to 55% for three weeks.</div>
     </div>
   </div>
 
-  <div class="flag"><b>The waste crisis is regional too:</b> Punjab landfills ~56% of collected waste, Haryana treats about half, and recovery units are mostly on paper (a UP audit found 45 of 735 working). Fixing Delhi alone will not clear the airshed.</div>
+  <div class="flag"><b>The waste problem is regional too:</b> Punjab dumps ~56% of its waste, Haryana treats about half, and most recovery units exist only on paper (a UP audit found 45 of 735 working). Fixing Delhi alone will not clean the region's air.</div>
 
   <h2 class="sec">Where the crisis concentrates</h2>
   <div class="grid2">
     <div class="box">
       <h3>Delhi hotspot map</h3>
       <div id="hotmap"></div>
-      <div class="note">Real NCT of Delhi boundary (GADM). Marker positions are approximate; click a marker for detail. The 13 official hotspots are from DPCC, Inventory of Major Point Air Pollution Sources in Delhi, 2023 (<a href="https://www.dpcc.delhigovt.nic.in/uploads/news/ae9ce818bf8b9e12ddb90177ce3108c7.pdf" target="_blank" rel="noopener">PDF</a>).</div>
+      <div class="note">Real Delhi boundary. Marker positions are approximate; click any marker for detail. The 13 official hotspots come from DPCC's 2023 pollution-source inventory (<a href="https://www.dpcc.delhigovt.nic.in/uploads/news/ae9ce818bf8b9e12ddb90177ce3108c7.pdf" target="_blank" rel="noopener">PDF</a>).</div>
     </div>
     <div class="box">
       <h3 id="hotname">The hotspots</h3>
-      <div id="hotdetail" style="font-size:13.5px;color:var(--ink);min-height:70px">Click any marker for detail. The map carries both stories at once: air (DPCC hotspots, smog towers) and waste (the three landfills, Seelampur e-waste, Okhla WtE, the Najafgarh drain).</div>
+      <div id="hotdetail" style="font-size:13.5px;color:var(--ink);min-height:70px">Click any marker for detail. The map shows both problems together: air (hotspots, smog towers) and waste (the three landfills, Seelampur e-waste, the Okhla incinerator, the Najafgarh drain).</div>
       <div id="hotlegend" style="margin-top:14px"></div>
     </div>
   </div>
 
   <details class="collapse">
     <summary>The hardware, and who owns it</summary>
-    <p class="lead">The physical stock the plan has to move, and its accountable owner. Sourced; flagged where no clean count exists.</p>
+    <p class="lead">The physical things this plan has to change, and who owns each one. Sourced; flagged where no clean count exists.</p>
     <div class="grid2">
       <div class="box">
         <h3>Coal thermal plants within 300 km</h3>
@@ -200,12 +200,12 @@ svg text{font-family:'Helvetica Neue',Arial,sans-serif}
       <div class="box">
         <h3>Recovery units (MRFs): on paper vs working</h3>
         <table id="mrf"></table>
-        <div class="note">Delhi's count swings 1,442 to 638 and conflates dhalaos. The five-state "~1,200 vs ~375 needed" figure is widely cited but <b>untraceable to a primary source</b>: unverified. Cleanest proof is the CAG UP audit.</div>
+        <div class="note">Delhi's count jumps between 1,442 and 638 and mixes in local dumps (dhalaos). The often-quoted "1,200 built vs 375 needed" figure has <b>no traceable source</b>, so treat it as unverified. The clearest proof is the UP government audit.</div>
       </div>
       <div class="box">
         <h3>Air monitors: reference vs low-cost</h3>
         <table id="mon"></table>
-        <div class="note">No authoritative NCR low-cost total; deployments are scattered pilots. The IIT-Kanpur ATMAN network (~1,300 nodes) is rural UP and Bihar, <b>not the NCR</b>.</div>
+        <div class="note">There is no reliable count of low-cost sensors in the region; they are scattered pilots. The 1,300-sensor ATMAN network is in rural UP and Bihar, <b>not around Delhi</b>.</div>
       </div>
     </div>
   </details>
@@ -219,7 +219,7 @@ svg text{font-family:'Helvetica Neue',Arial,sans-serif}
     <div class="box"><h3>Key deadlines, and what is slipping</h3><table id="timeline"></table></div>
   </div>
 
-  <div class="flag"><b>Read the data honestly:</b> a 2025 CAG audit found monitors mis-sited and the AQI unreliable; MSW composition rests on a 2005 study; plastic tonnage is contested (690 vs 1,145 TPD); e-waste, sanitary and hazardous volumes are unquantified. These gaps are the first work items, not a reason to wait.</div>
+  <div class="flag"><b>Be honest about the data:</b> a 2025 government audit found air monitors badly placed and the AQI unreliable; the waste mix was last measured in 2005; plastic tonnage is disputed (690 vs 1,145 a day); e-waste, sanitary and hazardous volumes are not measured at all. Fixing these gaps is the first job, not a reason to wait.</div>
 </section>
 
 <!-- ================= TAB 2: SYSTEM ================= -->
@@ -287,23 +287,23 @@ svg text{font-family:'Helvetica Neue',Arial,sans-serif}
   <p class="lead">Four fixes, ordered by impact. Partners and detail on Tab 3.</p>
   <div class="moves" id="movecards"></div>
 
-  <div class="flag"><b>One regional lever is not a given:</b> we treat winter meteorology and the airshed as constants, but household solid fuel across the airshed is the largest single lever with no programme owning it. A 50% shift is modelled at ~30% of Delhi's winter PM2.5 (with a regional crop-fire ban) or ~13% NCR-only. It has never had its ambient effect measured in India, so the first move is a measured pilot, not another subsidy push.</div>
+  <div class="flag"><b>The biggest missed lever is household fuel:</b> millions of homes across the region still cook and heat with wood, dung and coal, and no programme owns this. Switching half of them could cut Delhi's winter pollution by up to 30%. But this has never been properly measured in India, so the first step is a measured pilot, not another subsidy.</div>
 
   <h2 class="sec">The six programmes: one rule to suspend, one number to move</h2>
-  <p class="lead">The four fixes above tackle Delhi's waste and local air. Across the airshed the work resolves into six programmes, each defined the same way: the process rule it needs relaxed (tested through the sandbox below), how much winter PM2.5 it could move, and how the change is measured. The honest reading is that the biggest levers have the thinnest delivery evidence, so each runs as a measured pilot before it becomes the rule.</p>
+  <p class="lead">The four fixes above cover Delhi's own waste and air. Across the wider region the work splits into six programmes. For each we list the rule that needs to be relaxed (tested in the sandbox below), how much winter pollution it could cut, and how we would measure it. The biggest levers have the weakest proof so far, so each starts as a measured pilot before it becomes the rule.</p>
   <table id="levers"></table>
 
   <div class="box" style="border-left:4px solid var(--green);margin-top:14px">
     <h3>The biggest programme, costed: household fuel</h3>
-    <p style="font-size:13.5px;margin:0 0 8px">~40 lakh NCR households still burn solid fuel (~55,000 tonnes of PM2.5 a year), rising to 60 lakh to 1.1 crore across the full airshed. The fix is not a new scheme but a delivery design: price a cylinder near ₹400, deliver to the door through winter, and cover heating fuel, not just cooking.</p>
-    <p style="font-size:13.5px;margin:0">Budget is ~₹1,800 to 3,000 cr/yr for 60 lakh households. The catch is the taper: budget it as a ten-year line whose phase-out waits for the ambient evaluation, because a subsidy pulled too early sends villages back to coal (the Beijing lesson). Pilot two upwind districts plus three NCR zones this winter, scale in year two.</p>
+    <p style="font-size:13.5px;margin:0 0 8px">About 40 lakh homes near Delhi still burn wood, dung or coal, rising to 60 lakh to 1.1 crore across the whole region. The fix is not a new scheme, it is better delivery: price a gas cylinder near ₹400, deliver it to the door through winter, and cover heating too, not just cooking.</p>
+    <p style="font-size:13.5px;margin:0">This costs about ₹1,800 to 3,000 crore a year for 60 lakh homes. Plan it as a ten-year commitment: do not cut the subsidy until measurement shows the air has improved, because pulling it too soon sends families back to coal (Beijing learned this). Start with two upwind districts and three Delhi-area zones this winter, then scale up next year.</p>
   </div>
 
   <div class="takeaway">
     <h3>What this means for government</h3>
     <ul>
-      <li><b>Government holds the lever for all four fixes</b> (contracts, budgets, worker inclusion, data), and none need a new law.</li>
-      <li><b>It already spends more reacting than prevention would cost.</b> Start with A and D.</li>
+      <li><b>Government controls all four fixes</b> (contracts, budgets, jobs, data), and none need a new law.</li>
+      <li><b>It already spends more reacting to the problem than prevention would cost.</b> Start with fixes A and D.</li>
     </ul>
   </div>
 </section>
@@ -311,25 +311,25 @@ svg text{font-family:'Helvetica Neue',Arial,sans-serif}
 <!-- ================= TAB 3: ACTION ================= -->
 <section class="panel" id="action">
   <h2 class="sec">Twelve actions before winter: the action government</h2>
-  <p class="lead">One row per action: what and by when, the government owner, the rough cost, who else is needed, and the Upwind evidence. The frame is one regional sandbox (Tab 2). Nothing here needs a new appropriation in year one; budgets are order-of-magnitude.</p>
+  <p class="lead">One row per action: what to do and by when, which government body owns it, the rough cost, and who else is needed. Nothing here needs new money in year one; costs are ballpark.</p>
   <table id="actiongov"></table>
 
   <h2 class="sec">Targets and measures</h2>
   <p class="lead">Every action reports against one measure. The target is a path, not a single date.</p>
   <table id="targets"></table>
 
-  <div class="flag"><b>Transport has instruments on paper and no measurement at all:</b> the certificate, the cameras, the age ban, the entry rule, the truck charge and the 4,338 e-buses are all unevaluated. So action 8 is a measurement programme first, a restriction second. Precedents: Tokyo (a boundary diesel rule on every vehicle) and Hong Kong (enforce on remote sensing, publish the trend); caution: Mexico City and odd-even, where number-plate rationing moved little. Worth testing in the sandbox: a price on adding a vehicle in the ring districts (Beijing/Shanghai), and an evaluation of Delhi's April 2026 truck charge.</div>
+  <div class="flag"><b>Transport has lots of rules on paper but almost no measurement:</b> the pollution certificate, the cameras, the old-vehicle ban, the entry rule, the truck charge and the 4,338 e-buses have never been checked for results. So action 8 measures first, restricts second. What worked elsewhere: Tokyo (a diesel rule on every vehicle) and Hong Kong (roadside sensing, publish the trend). What did not: Mexico City's odd-even plates. Worth testing: a fee to add a vehicle in the ring districts, and a review of Delhi's 2026 truck charge.</div>
 
   <div class="takeaway">
     <h3>The money, and the roles in one line</h3>
     <ul>
-      <li><b>Year one</b> needs roughly <b>₹250 to 350 cr</b> of public spending outside the recovery units and the buses. Against that: <b>₹401 cr</b> of tribunal compensation frozen, <b>₹78 cr</b> of the court's diesel charge idle, and clean-air grants to NCR cities <b>~60% unused</b>. Only two lines need new money from year two: the fuel programme at scale, and the bus floor.</li>
-      <li><b>Innovators</b> enter the sandbox with a named instrument and a measurement plan. <b>Research bodies</b> run the apportionment and the evaluations that do not yet exist. <b>Grassroots actors</b> are the operators and hosts: cooperatives at recovery units, panchayats and SHGs at fuel and stubble, residents at the monitors. <b>Think tanks</b> write the rules the sandbox tests and broker the method the five states sign.</li>
+      <li><b>Year one</b> needs roughly <b>₹250 to 350 cr</b> of public money, apart from the recovery units and buses. Against that: <b>₹401 cr</b> of frozen fines, <b>₹78 cr</b> of an idle diesel charge, and clean-air grants to nearby cities <b>~60% unused</b>. Only two things need new money from year two: the fuel programme at scale, and more buses.</li>
+      <li><b>Startups</b> bring a specific tool and a plan to measure it. <b>Research bodies</b> run the source studies and evaluations that do not exist yet. <b>Grassroots groups</b> do the work on the ground: cooperatives at recovery units, village groups on fuel and stubble, residents hosting monitors. <b>Think tanks</b> write the rules being tested and help the five states agree.</li>
     </ul>
   </div>
 
   <h2 class="sec">Action &amp; Partner Map</h2>
-  <p class="lead">The waste and local-air streams beneath the plan: what is broken, the fix to chase in under a year, and who can do it. Filter by the move it serves.</p>
+  <p class="lead">The waste and local-air streams behind the plan: what is broken, the quick fix to chase within a year, and who can do it. Filter by the fix it serves.</p>
   <div class="chips" id="filters">
     <span class="chip active" data-m="all">All</span>
     <span class="chip" data-m="A">A · Front end</span>
@@ -343,21 +343,21 @@ svg text{font-family:'Helvetica Neue',Arial,sans-serif}
   <ol id="dofirst" style="font-size:14px"></ol>
 
   <h2 class="sec">Financials: the money is already there</h2>
-  <p class="lead">The fixes are cheap or self-funding. The gap is not money, it is money pointed downstream.</p>
+  <p class="lead">The fixes are cheap or pay for themselves. The problem is not a lack of money, it is money spent in the wrong place.</p>
   <div class="grid2">
     <div class="box"><h3>Money already in the system (can be redirected)</h3><table id="moneytab"></table></div>
     <div class="box"><h3>What each fix needs, and who funds it</h3><table id="fixfin"></table></div>
   </div>
 
-  <div class="callout">The whole measurement layer (a current inventory, winter supersites, a calibrated sensor mesh, public stack data, plus evaluations of GRAP and the fuel pilot) costs under ₹100 cr: less than one winter of anti-smog guns. The open broker already exists (<a href="https://oaq.notf.in" target="_blank" rel="noopener">oaq.notf.in</a>, under NOTF); the job is to route every monitor onto it and add fence-line sensors. It is the cheapest line in the plan, and it comes first (fix C).</div>
+  <div class="callout">Getting honest measurement in place (a fresh survey, winter monitoring stations, a calibrated sensor network, public factory-stack data, and reviews of GRAP and the fuel pilot) costs under ₹100 cr: less than one winter of anti-smog guns. The open data hub already exists (<a href="https://oaq.notf.in" target="_blank" rel="noopener">oaq.notf.in</a>); the job is to connect every monitor to it and add sensors at the fence lines of dumps and factories. It is the cheapest part of the plan, and it comes first (fix C).</div>
 
   <h2 class="sec">What good looks like: precedent and the cost curve</h2>
-  <p class="lead">Prevention-first is not theoretical: a comparable megacity did it, and the economics favour coordinated airshed action over fragmented spending.</p>
+  <p class="lead">Prevention is not just theory: a similar megacity did it, and acting together across the region is far cheaper than every city acting alone.</p>
   <div class="grid2">
     <div class="box" style="border-left:4px solid var(--green)">
       <h3>Beijing did it in roughly a decade</h3>
-      <p style="font-size:13.5px;margin:0 0 8px">PM2.5 fell from ~89.5 to ~58 ug/m3 in five years, then to ~30.5 by 2024. The levers were coal-boiler phase-out, clean household fuel for ~900,000 homes (~8,000 yuan each), and regional coordination across Beijing-Tianjin-Hebei. Favourable weather explained only ~9 to 20% of the early gain; the first third of the drop still took four to five years.</p>
-      <div class="note">Read-across: household fuel and regional coordination did the heavy lifting, the two levers Delhi has least programme for.</div>
+      <p style="font-size:13.5px;margin:0 0 8px">Beijing's PM2.5 fell from ~90 to ~58 in five years, then to ~30 by 2024. How: shutting coal boilers, clean cooking fuel for ~900,000 homes, and the whole region working together. Good weather explained only 9 to 20% of the early gain, and even the first third of the drop took four to five years.</p>
+      <div class="note">The lesson: household fuel and regional teamwork did most of the work, the two things Delhi has done least about.</div>
     </div>
     <div class="box" style="border-left:4px solid var(--purple)">
       <h3>Coordinated action is far cheaper per unit</h3>
@@ -365,23 +365,23 @@ svg text{font-family:'Helvetica Neue',Arial,sans-serif}
         <tr><td><b>Coordinated airshed</b></td><td>~US$278 m</td></tr>
         <tr><td>Hotspot-only</td><td>~US$780 m</td></tr>
         <tr><td>Fragmented, city-by-city</td><td>~US$2.6 bn</td></tr></table>
-      <div class="note">World Bank, Striving for Clean Air (2022). Per life saved: ~US$7,600 coordinated vs ~US$38,000 to 68,000 fragmented. This is the hard number behind "the fixes are cheap": the expensive path is the fragmented one we are on.</div>
+      <div class="note">World Bank, 2022. Per life saved: ~US$7,600 acting together vs ~US$38,000 to 68,000 acting alone. This is the proof that "the fixes are cheap": the expensive path is the piecemeal one we are on now.</div>
     </div>
   </div>
 
   <h2 class="sec">If we set up a task force, how</h2>
   <table id="phases"></table>
   <div class="box" style="margin-top:12px;font-size:13.5px">
-    <b style="color:var(--navy)">Who is in the room:</b> conveners (RF + RM), a government owner (MCD / DPCC / CAQM), 2 to 3 implementing partners per lever (from the directory below), a funder / CSR, a data and research anchor, and community and advocacy voices.<br>
-    <b style="color:var(--navy)">How it runs:</b> a small steering group plus one working group per lever, meeting monthly, with this dashboard as the shared tracker. Pilot first, then scale what works.
+    <b style="color:var(--navy)">Who is in the room:</b> conveners (RF + RM), a government owner (MCD / DPCC / CAQM), 2 to 3 delivery partners per fix (from the directory below), a funder, a data and research lead, and community voices.<br>
+    <b style="color:var(--navy)">How it runs:</b> a small steering group plus one working group per fix, meeting monthly, using this dashboard as the shared tracker. Pilot first, then scale what works.
   </div>
 
   <h2 class="sec">How to run it across five states</h2>
-  <p class="lead">Two mechanisms let a task force act without waiting for new law: a shared order of priority, and a controlled space to test instruments before mandating them.</p>
+  <p class="lead">Two things let the states act without waiting for new law: a shared order of priority, and a safe space to test new ideas before making them rules.</p>
   <div class="grid2">
     <div class="box">
       <h3>Upwind first</h3>
-      <p style="font-size:13.5px;margin:0 0 8px">A tonne of PM2.5 cut in Sonipat reaches Delhi, Ghaziabad and Noida; a tonne cut in Meerut reaches only Meerut. So the sequence follows the wind, not the map:</p>
+      <p style="font-size:13.5px;margin:0 0 8px">Cutting pollution in Sonipat helps Delhi, Ghaziabad and Noida; cutting it in Meerut helps only Meerut. So the order follows the wind, not the map:</p>
       <ol style="margin:0;padding-left:18px;font-size:13.5px">
         <li style="margin-bottom:4px"><b>Haryana NCR belt</b> (20 to 80 km upwind): kilns, plants, solid-fuel homes</li>
         <li style="margin-bottom:4px"><b>Punjab</b> (November weeks): stubble fires</li>
@@ -393,13 +393,13 @@ svg text{font-family:'Helvetica Neue',Arial,sans-serif}
     </div>
     <div class="box">
       <h3>The regulatory sandbox</h3>
-      <p style="font-size:13.5px;margin:0 0 8px">Borrowed from the financial sector: the five states and CAQM test a new instrument in a bounded area, relaxing <b>the rules</b> (never a safety rule) for the term of the test, with public before-and-after measurement required of everyone in it.</p>
-      <p style="font-size:13.5px;margin:0">The deal is simple: <b>what moves the number becomes the rule across five states.</b> It suspends the tender, subsidy, mandate-timing and fuel-switching rules that block better delivery on waste, fuel, transport and industry, one programme at a time (the six above). No new law, appropriation or body: just five signatures and honest measurement.</p>
+      <p style="font-size:13.5px;margin:0 0 8px">Borrowed from banking: the five states and CAQM test a new idea in a small area, relaxing <b>the rules</b> (never a safety rule) for the length of the test, with everyone measuring the air before and after in public.</p>
+      <p style="font-size:13.5px;margin:0">The deal is simple: <b>whatever cleans the air becomes the rule across all five states.</b> It pauses the tendering, subsidy and timing rules that block better work on waste, fuel, transport and industry, one programme at a time. No new law, no new money, no new body: just five signatures and honest measurement.</p>
     </div>
   </div>
 
   <h2 class="sec">The public artefact: one page, one number per district</h2>
-  <p class="lead">Alongside the internal tracker, publish one page a month: one PM2.5 number per district, the sector budgets beneath it, and spend against them. One thing a farmer, a kiln owner, a chief secretary and a resident can all read, replacing the winter-only GRAP index with a standing annual target.</p>
+  <p class="lead">Alongside the internal tracker, publish one page a month: one pollution number per district, the budgets behind it, and how much has been spent. Something a farmer, a kiln owner, a top official and a resident can all read, replacing the winter-only alert index with a year-round target.</p>
   <div class="grid2">
     <div class="box">
       <h3>Illustrative monthly page (layout, not live data)</h3>
@@ -415,23 +415,23 @@ svg text{font-family:'Helvetica Neue',Arial,sans-serif}
     <div class="box">
       <h3>Three principles that keep it honest</h3>
       <ul style="margin:0;padding-left:18px;font-size:13.5px">
-        <li style="margin-bottom:7px"><b>Subsidiarity:</b> write the rule at the level that can hold it. District-level targets for fires, kilns and kitchens, not one national average that no one owns.</li>
-        <li style="margin-bottom:7px"><b>Place-based ownership:</b> the district owns its page. Brokers and funders support it but do not own it, which prevents capture.</li>
-        <li style="margin-bottom:0"><b>Transparency:</b> published monthly, same format every time, so a missed target is visible to everyone the same day.</li>
+        <li style="margin-bottom:7px"><b>Set targets locally:</b> put the target at the level that can act on it. District targets for fires, kilns and kitchens, not one national average nobody owns.</li>
+        <li style="margin-bottom:7px"><b>The district owns its page:</b> funders and brokers help, but do not control it, so no one can capture it.</li>
+        <li style="margin-bottom:0"><b>Publish openly:</b> same format every month, so a missed target is visible to everyone on the same day.</li>
       </ul>
-      <div class="note">This is the accountability layer over the task force: the task force runs the levers, the page shows whether they are working.</div>
+      <div class="note">This keeps the task force accountable: the task force does the work, the page shows whether it is working.</div>
     </div>
   </div>
 
   <details class="collapse">
     <summary>What we can leverage (already built or paid for)</summary>
-    <div class="callout">Most of what is needed already exists. The job is to redirect idle money and switch on assets that are built but unused, not to build new things.</div>
+    <div class="callout">Most of what is needed already exists. The job is to move idle money and switch on things that are already built but unused, not to build new ones.</div>
     <table id="leverage"></table>
   </details>
 
   <details class="collapse">
     <summary>Partner directory: the full ecosystem (click to expand)</summary>
-    <p class="lead">Organisations across the Delhi air and waste ecosystem. 'Shortlist' = the Waste + Air startup list; 'Ecosystem' = others already working here. Filter by sector.</p>
+    <p class="lead">Organisations working on Delhi's air and waste. 'Shortlist' = the Waste + Air startup list; 'Ecosystem' = others already active here. Filter by sector.</p>
   <div class="chips" id="pfilters">
     <span class="chip active" data-s="all">All</span>
     <span class="chip" data-s="Air">Air</span>
@@ -448,7 +448,7 @@ svg text{font-family:'Helvetica Neue',Arial,sans-serif}
     <div class="abbr" id="abbr"></div>
   </details>
 
-  <div class="flag"><b>An indicative ecosystem map</b> of organisations and government owners working across these areas. The givens (winter meteorology, the regional airshed, the legacy stock) are not on this map by design.</div>
+  <div class="flag"><b>A rough map</b> of the organisations and government bodies working in these areas. The fixed facts we cannot change (winter weather, the regional airshed, the old landfill piles) are left off on purpose.</div>
 </section>
 
 <div class="foot" id="foot"></div>
@@ -464,7 +464,7 @@ const D = {
     {big:"4,200", lab:"tonnes dumped unprocessed every single day", c:"bad"},
     {big:"~65-70%", lab:"of winter PM2.5 blows in from the regional airshed", c:"warn"},
     {big:"~12,000", lab:"Delhi deaths/yr attributed to PM2.5 (Lancet 2024)", c:"bad"},
-    {big:"8.2 yrs", lab:"life expectancy lost per Delhi resident (AQLI; ~0.7 in Tokyo); ~68,000 acute respiratory ER visits/yr", c:"bad"},
+    {big:"8.2 yrs", lab:"of life lost per Delhi resident (~0.7 in Tokyo); ~68,000 emergency breathing-related hospital visits a year", c:"bad"},
   ],
   trendYears:["2018","2019","2020","2021","2022","2023","2024","2025"],
   trendPM:[103,99,85,95,90,90,98,85],
@@ -472,15 +472,15 @@ const D = {
     "Delhi city (winter)":[["Industry",30,"#a63a3a"],["Transport",28,"#c9772f"],["Dust",17,"#2456a6"],["Biomass",14,"#2e7d5b"],["Other",11,"#8a99a6"]],
     "Wider NCR":[["Residential",25,"#6b3fa0"],["Industry",24,"#a63a3a"],["Farm burning",19,"#2e7d5b"],["Other",19,"#8a99a6"],["Transport",13,"#c9772f"]]
   },
-  waste:[["Generated",11850,"#a63a3a"],["Processing capacity",8173,"#c9772f"],["Actually processed",7611,"#2e7d5b"]],
+  waste:[["Made",11850,"#a63a3a"],["Can handle",8173,"#c9772f"],["Actually handled",7611,"#2e7d5b"]],
   landfill:[["Ghazipur",68.6,"#a63a3a"],["Bhalswa",30.18,"#c9772f"],["Okhla",16.4,"#6b3fa0"]],
   ncr:[["Delhi",97,"#a63a3a"],["Ghaziabad",93,"#a63a3a"],["Noida",83,"#c9772f"],["Gurugram",77,"#c9772f"],["Gr. Noida",77,"#c9772f"],["Bhiwadi",74,"#c9772f"],["Meerut",63,"#c9772f"]],
   effect:[
     ["NCAP (clean-air funds)","Only 41 of 97 cities met the initial PM10 target; ~64 to 67% of spend went to road dust, ~1% each to industry and domestic fuel","Misdirected"],
-    ["GRAP (emergency response)","Invoked 9 times last winter (Stage IV in force 14 days, Stage III 41) across only 55 of 212 days that breached the daily limit; peer-reviewed evidence shows only limited PM cuts during enforcement, and its causal effect has never been formally evaluated","Reactive, weak"],
+    ["GRAP (emergency curbs)","Kicked in on only 55 of the 212 days that broke the daily limit last winter. Studies show they cut pollution only a little, and the effect has never been formally measured","Reactive, weak"],
     ["Smog towers","Connaught Place tower (₹19.42 cr) had zero recorded operating spend for two years; non-functional. DPCC: 40,000+ needed for a city effect","Failed"],
-    ["Biomining (landfills)","Record 74 lakh MT in FY25-26, but sites refill from the daily 4,200 TPD gap; ~11.5 MT still remain","Running to stand still"],
-    ["WtE plants","Documented dioxin/furan violations (Okhla 890% over limit); CPCB's own March 2025 test found Bawana dioxins ~6x the limit and a cadmium exceedance at Ghazipur. Continuous stack monitoring was ordered Aug 2025 but no data has been published. Burning wet mixed waste runs inefficiently","Polluting"],
+    ["Landfill clearing (biomining)","Record 74 lakh tonnes cleared in 2025-26, but sites refill from the 4,200-tonne daily gap; ~11.5 million tonnes still remain","Running to stand still"],
+    ["Waste-to-energy plants","Toxic emissions above legal limits: Okhla 890% over, and the government's own March 2025 test found Bawana's dioxins 6x the limit and excess cadmium at Ghazipur. Non-stop stack monitoring was ordered in Aug 2025 but no data is public. Burning wet mixed waste is inefficient","Polluting"],
     ["Sewage (Delhi Jal Board)","Largest treatment gap in India (~2,562 MLD); Najafgarh drain alone = ~70% of the Yamuna's load","Under-capacity"],
   ],
   ladder:[
@@ -489,10 +489,10 @@ const D = {
     ["React at the end","Emergency bans, smog towers, spraying, digging landfills","Least","Most of the money: two-thirds of clean-air spend on road dust; smog tower broken"],
   ],
   moves:[
-    {L:"A",cls:"a",title:"Separate waste from the start",help:"Helps most",color:"#2e7d5b",stat:"~55% separated today &rarr; 100% is already the Jan-2027 target. Unlocks ~6,000 TPD of wet waste and shrinks the 4,200 TPD daily dump.",why:"One habit cuts landfill methane and fires, stops plastic and e-waste being burned, and makes composting and recycling actually work.",lever:"Enforce segregation on bulk generators; back ward-level composting."},
-    {L:"D",cls:"d",title:"Fix the money",help:"Helps most",color:"#6b3fa0",stat:"Dumping costs ~Rs 14,500/tonne. ~Rs 7,600 cr of clean-air money already spent (about two-thirds on road dust) + ~Rs 3,100 cr of NGT fines sitting unused.",why:"Today the money rewards dumping. Pay for waste actually recycled, make producers pay (EPR), and use fines to clean up.",lever:"You control the contracts, the NCAP budget, EPR fees and the fines."},
-    {L:"B",cls:"b",title:"Back the waste-pickers",help:"Helps some",color:"#c9772f",stat:"~1.5 lakh pickers already recycle >2,000 TPD for free, saving the city ~Rs 1 crore a day (~Rs 365 cr a year), at near-zero capital.",why:"Proven, cheap capacity already diverting a fifth of the waste, but left out of the system.",lever:"Fold them into MCD collection and recycling with IDs and contracts."},
-    {L:"C",cls:"c",title:"Get honest, open data",help:"Makes the rest work",color:"#2456a6",stat:"Air readings ruled unreliable (CAG 2025). The waste mix was last measured in 2005 (21 years ago). Plastic tonnage still disputed (690 vs 1,145 TPD).",why:"You cannot fix, fund, or hold anyone to account for what you cannot measure.",lever:"Order a fresh waste survey, re-site the monitors, and open the data."},
+    {L:"A",cls:"a",title:"Separate waste from the start",help:"Helps most",color:"#2e7d5b",stat:"Only ~55% of waste is separated now; 100% is already the target for Jan 2027. Doing it frees up ~6,000 tonnes a day of wet waste and shrinks the 4,200-tonne daily dump.",why:"One habit cuts landfill methane and fires, stops plastic and e-waste being burned, and makes composting and recycling actually work.",lever:"Make big waste producers separate their waste; support local composting."},
+    {L:"D",cls:"d",title:"Fix the money",help:"Helps most",color:"#6b3fa0",stat:"Dumping costs ~₹14,500 a tonne. ~₹7,600 cr of clean-air money is already spent (about two-thirds on road dust), plus ~₹3,100 cr of court fines sitting unused.",why:"Right now the money rewards dumping. Pay for waste that is actually recycled, make producers pay for what they create (EPR), and use fines to clean up.",lever:"You control the contracts, the clean-air budget, producer fees and the fines."},
+    {L:"B",cls:"b",title:"Back the waste-pickers",help:"Helps some",color:"#c9772f",stat:"~1.5 lakh waste-pickers already recycle over 2,000 tonnes a day for free, saving the city ~₹1 crore a day (~₹365 cr a year), at almost no cost.",why:"Proven, cheap capacity already handling a fifth of the waste, but left out of the system.",lever:"Bring them into city collection and recycling with IDs and contracts."},
+    {L:"C",cls:"c",title:"Get honest, open data",help:"Makes the rest work",color:"#2456a6",stat:"Air readings ruled unreliable (govt audit, 2025). The waste mix was last measured in 2005, 21 years ago. Plastic tonnage is still disputed (690 vs 1,145 a day).",why:"You cannot fix, fund, or hold anyone to account for what you cannot measure.",lever:"Order a fresh waste survey, move the monitors to better spots, and open the data."},
   ],
   map:[
     ["Wet / organic (~6,000 TPD)","Mixed, dumped; no decentralised composting","Bulk-generator segregation + ward composting","Hasirudala, Carbon Masters, Saroja Earth; MCD, RWAs","AD"],
@@ -670,18 +670,18 @@ function selHot(i){
 drawHotmap();
 document.getElementById('dofirst').innerHTML=D.dofirst.map(x=>`<li style="margin-bottom:6px">${x}</li>`).join("");
 const ACTIONS=[
-  [1,"Declare the airshed target and the sandbox","Before 1 Nov","urgent","One annual PM2.5 target per district, published monthly. Delhi 97 to 60 by 2030, 40 by 2036. <i>Two-thirds of Delhi's winter air is imported; the winter instrument fires by episode and has never been evaluated.</i>","CAQM; the five chief secretaries","under ₹1 cr","Think tanks: the target path and sandbox rules. A neutral operator runs the page and owns none of it","8, 14, 28"],
-  [2,"Open the data","90 days","soon","Hyperlocal air data a public good; every station hourly with uptime; every existing low-cost monitor on one broker; fence-line monitors at the dumps, incinerators and kiln clusters. <i>Two-thirds of Delhi is >2 km from a monitor; 173 station-hours lost on Diwali 2025.</i>","CPCB, DPCC, the five boards, municipal bodies","₹10 to 20 cr yr1; full layer <₹100 cr","Innovators: sensor makers, calibration, broker operators (oaq.notf.in). Research: co-location and correction. Grassroots: residents and schools host monitors","17, 23"],
-  [3,"Make stack data public","90 days","soon","Hourly feeds from every incinerator, every Category A plant and the seven exempt plants. <i>Bawana's dioxins 6x the limit in CPCB's own test; the fleet set to double.</i>","MoEFCC, CPCB, CAQM, CEA","nil beyond a portal","Innovators: data pipelines. Research: independent verification. Grassroots: fence-line communities as readers","11, 12"],
-  [4,"Fund the standing source apportionment","Commission in 90 days","soon","One method the five states accept, with the first supersite. <i>Four studies a decade apart the regulator's own expert group cannot reconcile; 83% of secondary aerosol forms beyond 30 km.</i>","CAQM with MoEFCC; the five boards sign","₹40 to 60 cr over three years","Research: the IITs, IITM, TERI, ARAI run it. Think tanks: broker the method. Funders: the supersite","7, 19"],
-  [5,"Contract the recovery facilities the daily flow needs","Contracts in 90 days","soon","79 Delhi, 68 Haryana, 141 UP, 55 Rajasthan, 34 Punjab at 50 t, each weighed on the broker. Pay for tonnes recovered. <i>1,200 on paper; 45 of 735 working in UP, 43 of 56 in Punjab; flow stopped, legacy is 2 years, else 90.</i>","Municipal bodies, state urban departments; MoHUA for the template","₹600 to 1,100 cr capital, largely under the existing mission","Innovators: circularity entrepreneurs, weighbridges, biogas. Grassroots: waste-picker cooperatives as operators. Think tanks: the contract template","13, 25"],
-  [6,"Pilot the fuel package","This winter","winter","Two upwind districts, three NCR zones. Cylinder near ₹400, doorstep delivery, winter heating covered, monitoring designed in. <i>The largest modelled lever, 10 to 20% of Delhi's winter PM2.5 from NCR homes; only 23% of rural homes cook on LPG alone.</i>","MoPNG and the oil companies; Haryana, Punjab, Delhi","₹60 to 100 cr pilot; ₹1,800 to 3,000 cr/yr at scale","Innovators: delivery and prepaid platforms, clean heating. Grassroots: SHGs and panchayats enrol homes. Research: the ambient evaluation","10, 26"],
-  [7,"Hold the plants to the rule and the data","Cat A by 31 Dec 2027","winter","Category A desulphurisation, no extension; the exempt seven on public hourly stack sulphur before winter; the co-firing floor enforced. <i>Seven of eleven plants within 300 km exempt, six upwind, 8,205 of 13,555 MW; NCR industry and power emit 27x Delhi's SO2.</i>","MoEFCC, CEA, CAQM; the operators","operators' cost, tariff-recoverable","Innovators: straw pellet supply, stack analytics. Research: emission tracking. Think tanks: the winter-run rule","11"],
-  [8,"Measure the fleet, then enforce on the measurement","This winter","winter","Remote sensing on the Gurugram and Noida corridors, published by fleet; on those corridors the roadside reading replaces the certificate and the age ban. Hold the 1 Nov 2026 entry dates. <i>The certificate passes failing vehicles; 112,000 vehicles measured showed CNG fleets up to 14x the lab limit.</i>","Transport departments of Delhi, Haryana and UP, with CAQM","₹5 to 10 cr for two corridors","Innovators: remote-sensing vendors, camera integration. Research: the ICCT method. Think tanks: the rule that replaces the certificate","18"],
-  [9,"Close the bus gap","Sandbox first term","winter","Set a floor of 60 buses per lakh in Delhi and the NCR towns, and bring UP into the national e-bus scheme. <i>Delhi runs 27 buses per lakh against a 60 floor; the ring registers more vehicles a year than Delhi.</i>","Municipal bodies and state transport; MoHUA for the scheme","₹1.2 to 1.8 cr a bus; Delhi's gap is ₹8,000 to 13,000 cr over five years","Innovators: operators under gross-cost contracts. Research: the ambient evaluation of the electric fleet, which does not exist","18"],
-  [10,"Enforce the kiln coal ban at the stack","Before the kiln season","winter","Haryana's NCR belt: a measured sample every season, published. <i>4,634 kilns zigzag on paper, 72% burning coal despite the ban.</i>","HSPCB with CAQM","₹5 to 10 cr a season","Innovators: low-cost stack sensors, retrofit firms. Research: emission factors. Grassroots: kiln worker groups","19"],
-  [11,"Pay part upfront for stubble","Decide in September","urgent","Two Punjab districts for the 2026 season; verify after 3 pm from the geostationary record. <i>Fire counts fell 94% while burning moved to the afternoon; the one trial: upfront raised compliance 8 to 12 points, pay-after did nothing.</i>","Punjab agriculture with the Union ministry; CAQM sets verification","₹50 to 100 cr for two districts","Grassroots: farmer producer organisations carry the payment. Research: replicate the trial. Think tanks: payment design","9, 19"],
-  [12,"Stop paying for what does not work, and staff the boards","90 days","urgent","Freeze smog towers, guns, sprayers, seeding and sprinklers, publishing what each achieved; fill the board posts the Supreme Court ordered in May 2025. <i>₹105.95 of ₹129.83 cr last winter hired 400 guns (412 before, 426 during); DPCC 55 to 68% vacant, 'virtually defunct'.</i>","Delhi govt, municipal bodies, MoEFCC; the five chief secretaries","saves ~₹100 cr a winter; ₹30 to 40 cr/yr for ~200 posts","Research and think tanks: publish the evaluation behind each frozen item; design a board that can read data","15, 23"],
+  [1,"Declare the airshed target and the sandbox","Before 1 Nov","urgent","One annual PM2.5 target per district, published monthly. Delhi 97 to 60 by 2030, 40 by 2036. <i>Two-thirds of Delhi's winter air blows in from outside; the current winter alerts fire only in bursts and have never been checked for results.</i>","CAQM; the five chief secretaries","under ₹1 cr","Think tanks: the target path and sandbox rules. A neutral operator runs the page and owns none of it","8, 14, 28"],
+  [2,"Open the data","90 days","soon","Hyperlocal air data a public good; every station hourly with uptime; every existing low-cost monitor on one broker; fence-line monitors at the dumps, incinerators and kiln clusters. <i>Two-thirds of Delhi is more than 2 km from any monitor; 173 station-hours were lost on Diwali 2025.</i>","CPCB, DPCC, the five boards, municipal bodies","₹10 to 20 cr yr1; full layer <₹100 cr","Innovators: sensor makers, calibration, broker operators (oaq.notf.in). Research: co-location and correction. Grassroots: residents and schools host monitors","17, 23"],
+  [3,"Make stack data public","90 days","soon","Hourly feeds from every incinerator, every Category A plant and the seven exempt plants. <i>Bawana's toxic emissions were 6x the limit in the government's own test, and the number of plants is set to double.</i>","MoEFCC, CPCB, CAQM, CEA","nil beyond a portal","Innovators: data pipelines. Research: independent verification. Grassroots: fence-line communities as readers","11, 12"],
+  [4,"Fund the standing source apportionment","Commission in 90 days","soon","One method the five states accept, with the first supersite. <i>Four studies a decade apart that the regulator's own experts cannot reconcile; 83% of the fine particles form more than 30 km away.</i>","CAQM with MoEFCC; the five boards sign","₹40 to 60 cr over three years","Research: the IITs, IITM, TERI, ARAI run it. Think tanks: broker the method. Funders: the supersite","7, 19"],
+  [5,"Contract the recovery facilities the daily flow needs","Contracts in 90 days","soon","79 Delhi, 68 Haryana, 141 UP, 55 Rajasthan, 34 Punjab at 50 t, each weighed on the broker. Pay for tonnes recovered. <i>1,200 exist on paper, but only 45 of 735 work in UP and 43 of 56 in Punjab; stop the inflow and the old piles clear in 2 years instead of 90.</i>","Municipal bodies, state urban departments; MoHUA for the template","₹600 to 1,100 cr capital, largely under the existing mission","Innovators: circularity entrepreneurs, weighbridges, biogas. Grassroots: waste-picker cooperatives as operators. Think tanks: the contract template","13, 25"],
+  [6,"Pilot the fuel package","This winter","winter","Two upwind districts, three NCR zones. Cylinder near ₹400, doorstep delivery, winter heating covered, monitoring designed in. <i>The biggest modelled lever: homes near Delhi cause 10 to 20% of its winter pollution, yet only 23% of rural homes cook on gas alone.</i>","MoPNG and the oil companies; Haryana, Punjab, Delhi","₹60 to 100 cr pilot; ₹1,800 to 3,000 cr/yr at scale","Innovators: delivery and prepaid platforms, clean heating. Grassroots: SHGs and panchayats enrol homes. Research: the ambient evaluation","10, 26"],
+  [7,"Hold the plants to the rule and the data","Cat A by 31 Dec 2027","winter","Category A desulphurisation, no extension; the exempt seven on public hourly stack sulphur before winter; the co-firing floor enforced. <i>Seven of eleven plants within 300 km are exempt, six of them upwind (8,205 of 13,555 MW); the region's factories and power plants emit 27x Delhi's sulphur.</i>","MoEFCC, CEA, CAQM; the operators","operators' cost, tariff-recoverable","Innovators: straw pellet supply, stack analytics. Research: emission tracking. Think tanks: the winter-run rule","11"],
+  [8,"Measure the fleet, then enforce on the measurement","This winter","winter","Remote sensing on the Gurugram and Noida corridors, published by fleet; on those corridors the roadside reading replaces the certificate and the age ban. Hold the 1 Nov 2026 entry dates. <i>The pollution certificate passes failing vehicles; of 112,000 vehicles measured, some CNG fleets ran up to 14x the lab limit.</i>","Transport departments of Delhi, Haryana and UP, with CAQM","₹5 to 10 cr for two corridors","Innovators: remote-sensing vendors, camera integration. Research: the ICCT method. Think tanks: the rule that replaces the certificate","18"],
+  [9,"Close the bus gap","Sandbox first term","winter","Set a floor of 60 buses per lakh in Delhi and the NCR towns, and bring UP into the national e-bus scheme. <i>Delhi runs 27 buses per lakh people against a floor of 60; the ring of towns registers more new vehicles a year than Delhi.</i>","Municipal bodies and state transport; MoHUA for the scheme","₹1.2 to 1.8 cr a bus; Delhi's gap is ₹8,000 to 13,000 cr over five years","Innovators: operators under gross-cost contracts. Research: the ambient evaluation of the electric fleet, which does not exist","18"],
+  [10,"Enforce the kiln coal ban at the stack","Before the kiln season","winter","Haryana's NCR belt: a measured sample every season, published. <i>4,634 kilns are 'clean' on paper, but 72% still burn coal despite the ban.</i>","HSPCB with CAQM","₹5 to 10 cr a season","Innovators: low-cost stack sensors, retrofit firms. Research: emission factors. Grassroots: kiln worker groups","19"],
+  [11,"Pay part upfront for stubble","Decide in September","urgent","Two Punjab districts for the 2026 season; verify after 3 pm from the geostationary record. <i>Fire counts fell 94% only because burning moved to the afternoon; the one trial found paying upfront raised compliance 8 to 12 points, while paying afterwards did nothing.</i>","Punjab agriculture with the Union ministry; CAQM sets verification","₹50 to 100 cr for two districts","Grassroots: farmer producer organisations carry the payment. Research: replicate the trial. Think tanks: payment design","9, 19"],
+  [12,"Stop paying for what does not work, and staff the boards","90 days","urgent","Freeze smog towers, guns, sprayers, seeding and sprinklers, publishing what each achieved; fill the board posts the Supreme Court ordered in May 2025. <i>₹105.95 of ₹129.83 cr last winter went on 400 anti-smog guns (readings: 412 before, 426 during); the DPCC is 55 to 68% empty and 'virtually defunct'.</i>","Delhi govt, municipal bodies, MoEFCC; the five chief secretaries","saves ~₹100 cr a winter; ₹30 to 40 cr/yr for ~200 posts","Research and think tanks: publish the evaluation behind each frozen item; design a board that can read data","15, 23"],
 ];
 const AWC={urgent:"#a63a3a",soon:"#c9772f",winter:"#6b3fa0"};
 document.getElementById('actiongov').innerHTML=`<tr><th style="width:3%">#</th><th style="width:29%">Action, and by when</th><th style="width:15%">Government owner</th><th style="width:13%">Budget</th><th style="width:28%">Who else is needed</th><th style="width:7%">Story</th></tr>`+ACTIONS.map(a=>`<tr><td><b>${a[0]}</b></td><td><b>${a[1]}</b> <span class="pill" style="background:${AWC[a[3]]}22;color:${AWC[a[3]]};white-space:nowrap">${a[2]}</span><div class="note" style="margin-top:5px">${a[4]}</div></td><td>${a[5]}</td><td>${a[6]}</td><td>${a[7]}</td><td><span class="note">acts ${a[8]}</span></td></tr>`).join("");
@@ -723,15 +723,15 @@ const TL=[
   ["2030","30% fleet electric; 'halve pollution'","Pending","warn"],
 ];
 const SYSGOOD=[
-  "CAQM (2021) gave NCR one authority with real teeth; GRAP is now forecast-triggered",
-  "Biomining doubled to 30,000+ tonnes/day; ~11.9 MT of old landfill waste cleared since 2019",
+  "CAQM (2021) gave the region one authority with real powers; emergency curbs now start on forecasts, not after the fact",
+  "Landfill clearing doubled to 30,000+ tonnes a day; ~11.9 million tonnes of old waste cleared since 2019",
   "28 sewage plants upgraded to the higher treatment standard",
 ];
 const SYSBAD=[
-  "PM2.5 is flat-to-rising (104.7 in 2024, up two years running, ~2.6x the standard)",
-  "Govt audit (2025): monitoring stations mis-sited, air data unreliable; ~Rs 843 cr green-cess left unspent",
-  "Waste separation and the plastic ban barely enforced; smog towers and incinerator compliance are documented failures",
-  "NCAP, landfill, sewage and EV deadlines are nearly all slipping",
+  "Pollution is flat or rising (104.7 in 2024, up two years running, ~2.6x the safe limit)",
+  "Govt audit (2025): air monitors badly placed, data unreliable; ~₹843 cr of green-cess money left unspent",
+  "Waste separation and the plastic ban are barely enforced; smog towers and incinerators are proven failures",
+  "The NCAP, landfill, sewage and EV deadlines are nearly all slipping",
 ];
 const STC={bad:"#a63a3a",warn:"#c9772f",good:"#2e7d5b"};
 document.getElementById('govtable').innerHTML=`<tr><th>Body</th><th>Type</th><th>Role</th></tr>`+GOV.map(r=>`<tr><td><b>${r[0]}</b></td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join("");
@@ -739,12 +739,12 @@ document.getElementById('timeline').innerHTML=`<tr><th>Deadline</th><th>Commitme
 document.getElementById('sysgood').innerHTML=SYSGOOD.map(x=>`<li>${x}</li>`).join("");
 document.getElementById('sysbad').innerHTML=SYSBAD.map(x=>`<li>${x}</li>`).join("");
 const LEVERS=[
-  ["Solid fuel","5 to 15% NCR (15 to 30% with Punjab + Haryana)","Subsidy and delivery rules","Household fuel survey + ambient","Haryana NCR belt, Punjab"],
-  ["Transport","10 to 15%","Vehicle-mandate timing","Fleet composition + ambient","NCR ring"],
-  ["Kilns","8 to 10%","Fuel-switching rules","Kiln monitoring + ambient","Haryana NCR belt"],
-  ["Waste","5 to 8%","Tender and contract rules","Ambient PM2.5 at dumps","Delhi"],
-  ["Coal plants","4 to 6%","Sulphur-compliance deferral","Stack monitoring + ambient","Panipat, Ropar (upwind)"],
-  ["Fires","2 to 7% (November only)","Subsidy design","Burnt-area mapping + ambient","Punjab"],
+  ["Household fuel","5 to 15% NCR (15 to 30% with Punjab + Haryana)","Subsidy and delivery rules","Home fuel survey + air readings","Haryana NCR belt, Punjab"],
+  ["Transport","10 to 15%","Vehicle-rule timing","Fleet mix + air readings","NCR ring"],
+  ["Kilns","8 to 10%","Fuel-switching rules","Kiln stack + air readings","Haryana NCR belt"],
+  ["Waste","5 to 8%","Tender and contract rules","Air readings at dumps","Delhi"],
+  ["Coal plants","4 to 6%","Delayed sulphur rules","Stack + air readings","Panipat, Ropar (upwind)"],
+  ["Fires","2 to 7% (November only)","Subsidy design","Burnt-area maps + air readings","Punjab"],
 ];
 document.getElementById('levers').innerHTML=`<tr><th>Programme</th><th>Size (winter PM2.5)</th><th>Rule to suspend</th><th>Measured by</th><th>Where</th></tr>`+LEVERS.map(r=>`<tr><td><b>${r[0]}</b></td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td><td>${r[4]}</td></tr>`).join("");
 
