@@ -2,7 +2,7 @@
 
 An offline, single-file dashboard that treats Delhi's air pollution and municipal solid waste as **one interlocked system**, and turns the evidence into an owned, pre-winter action plan for the NCR airshed. It maps the crisis, the leverage, the regulatory sandbox that lets five states act without new law, the twelve actions with owners and budgets, and the organisations and hardware behind each one.
 
-**Live:** https://ashwask.github.io/delhi-air-waste/ &nbsp;·&nbsp; Draft v0.7
+**Live:** https://ashwask.github.io/delhi-air-waste/ &nbsp;·&nbsp; Draft v0.8
 
 ## Tabs
 
